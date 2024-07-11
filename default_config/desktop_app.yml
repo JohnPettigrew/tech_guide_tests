@@ -1,0 +1,8 @@
+&defaults_desktop_app
+
+app_name: xStore
+image_directory: features/support/images
+find_timeout: 5
+similarity: 0.8
+
+<%= IO.read(filename) if File.exists?(filename) %>

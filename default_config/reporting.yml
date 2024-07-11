@@ -1,0 +1,29 @@
+&defaults_reporting
+
+failure_screenshots: true
+resize_for_screenshots: false
+
+local:
+
+  html_report: true
+  realtime_failure: false
+  junit: true
+  json: true
+  rerun: true
+
+dashboard:
+  enabled: false
+  project_id: 1
+  label: example-label
+  auth_token: api-key
+  scheduled_updates: false
+  scheduled_interval: 10
+
+testrail:
+  enabled: false
+  domain: example-domain
+  project_id: 1
+  test_run_id: 0
+
+
+<%= IO.read(filename) if File.exists?(filename) %>

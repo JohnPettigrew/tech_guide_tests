@@ -1,0 +1,27 @@
+&defaults_mobile_app
+
+source: local_device # browserstack, local_device
+app_path: /path/to/app
+default_timeout: 20
+
+browserstack:
+  local_testing: false
+  browserstack_debug: true
+  test_name: Regression Tests
+
+  mobile:
+    device: Test Device
+    platform: android
+
+local_device:
+  command_timeout: 60
+  appium_options: []
+
+  mobile:
+    driver: UiAutomator2
+    device_name: Test Device
+    platform_name: Android
+    platform_version: API 32
+    udid: emulator-5554
+
+<%= IO.read(filename) if File.exists?(filename) %>  
