@@ -1,0 +1,113 @@
+Feature: Home page
+
+  Scenario: Can see a hero area on the home page
+    Given I am on the home page
+    When I scroll to the top
+    Then I see a top-level heading saying "Welcome to the Parkinson's UK Tech Guide"
+    And I see the home-page hero text block
+    And I see the hero image
+    And I see the Explore the catalogue button
+    When I click on the Explore the catalogue button
+    Then I am taken to the product display page
+
+  @not_implemented
+  Scenario: Can see a benefits area on the home page
+    Given I am a visitor
+    And I am on the home page
+    When I scroll down past the hero area
+    Then I see a second-level heading saying 'The Tech Guide helps you to…'
+    And under this a third-level heading saying 'Discover'
+    And under this a text block containing DATA_1
+    And under this a third-level heading saying 'Understand'
+    And under this a text block containing DATA_2
+    And under this a third-level heading saying 'Trust'
+    And under this a text block containing DATA_3
+
+# DATA_1: New technology arrives all the time, and Parkinson's is complicated. The Tech Guide shows you what's available. When you read about something new, we're here to put it in context. We can't tell you what's right for your own unique situation, but we can make sure you know your options.
+
+# DATA_2: Knowing what's out there is only part of the answer. The Tech Guide helps you understand what tech actually offers and puts the tech in context - everything from “what is an app and how do I get one?” to “what is freezing of gait, why does cueing help, and why would I spend money on a wearable device instead of listening to music on my headphones?”
+
+# DATA_3: Our trusted reviews help you decide which devices or apps to trust with your money, your time and your health. We give tech to people with Parkinson's for several weeks. From their feedback, we build a single, clear review. We don't recommend or endorse any particular product, but help you make confident decisions for yourself.
+
+  @not_implemented
+  Scenario: Can see a What's new area on the home page
+    Given I am a visitor
+    And I am on the home page
+    When I scroll down past the benefits area
+    Then I see a second-level heading saying "What's new"
+    And I see a third-level heading saying "Recent reviews"
+    And I see three cards containing the most recently published reviews in reverse chronological order
+    And each card includes the product name, a product image, the company name, the price-band indicator and a "Read review" button
+    And I see a third-level heading saying "New products"
+    And I see a horizontal list of five product names
+
+  @not_implemented
+  Scenario: Can read latest review directly from the home page
+    Given I am a visitor
+    And I am on the home page
+    When I click the "Read review" button on the first card in the Recent reviews section
+    Then I see the PDP for that product
+    And the review tab is selected
+    And I am scrolled to the position of the review
+
+  @not_implemented
+  Scenario: Can read the latest product page directly from the home page
+    Given I am a visitor
+    And I am on the home page
+    When I click the "Read review" button on the first card in the Recent reviews section
+    Then I see the PDP for that product
+    And the review tab is selected
+    And I am scrolled to the position of the review
+
+  @not_implemented
+  Scenario: Can sign up to the email newsletter from the home page
+    Given I am a visitor
+    And I am on the home page
+    When I scroll down past the recent updates area
+    Then I see a second-level heading saying 'Sign up for more'
+    And under this a text block containing DATA_1
+    And under this an email field labelled 'Email address'
+    And under this a field labelled 'Password'
+    And under this a checkbox labelled 'Get the email updates'
+    And under this a checkbox labelled 'Get the print edition'
+    And under this a button labelled 'Sign up'
+    When I enter my email address into the field labelled 'Email address'
+    And I enter my password into the field labelled 'Password'
+    And I select the checkbox labelled 'Get the email updates'
+    And I click the 'Sign up' button
+    Then I see the home page
+    And I see a flash message 'Thank you for creating an account on the Tech Guide. You will now get periodic updates from the Tech Guide (no more often than monthly).'
+
+  @not_implemented
+  Scenario: Can sign up to the print edition from the home page
+    Given I am a visitor
+    And I am on the home page
+    When I enter my email address into the field labelled 'Email address'
+    And I enter my password into the field labelled 'Password'
+    And I select the checkbox labelled 'Get the print edition'
+    And I click the 'Sign up' button
+    Then I see the Print Success page
+    And I see the text DATA_2
+    And I see the 'Go back home' button
+    When I click the 'Go back home' button
+    Then I see the home page
+
+    # DATA_1: Get your monthly email update to hear about the latest Tech Guide articles.
+    # If you prefer to read in print, you can also sign up for our occasional full printed edition by post, for free. Or try our downloadable PDFs to print yourself.
+    # Fill in this form and choose which option you prefer (or both of them).
+
+    # DATA_2: Thank you for creating an account on the Tech Guide. 
+    # We plan to produce the first print edition in September 2024. The Tech Guide is still new, and we need to have enough reviews for it to be worth printing and sending out our first edition! 
+    # When the time comes, we will email you to ask for your postal details.
+
+  @not_implemented
+  Scenario: Home page in-page navigation
+    Given I am a visitor
+    And I am on the home page
+    Then I see an in-page navigation area that lists the page sections based on existing content (The Tech Guide helps you to..., What's new?, Sign up for more), after a label "On this page"
+    When I click on 'The Tech Guide helps you to...' 
+    Then the 'The Tech Guide helps you to...' section scrolls into view
+    When I click on 'What's new?' 
+    Then the 'What's new?' section scrolls into view
+    When I click on 'Sign up for more' in the in-page nav area
+    Then the 'Sign up for more' section scrolls into view
