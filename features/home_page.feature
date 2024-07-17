@@ -10,24 +10,17 @@ Feature: Home page
     When I click on the Explore the catalogue button
     Then I am taken to the product display page
 
-  @not_implemented
+  @working
   Scenario: Can see a benefits area on the home page
     Given I am a visitor
     And I am on the home page
-    When I scroll down past the hero area
-    Then I see a second-level heading saying 'The Tech Guide helps you to…'
-    And under this a third-level heading saying 'Discover'
-    And under this a text block containing DATA_1
-    And under this a third-level heading saying 'Understand'
-    And under this a text block containing DATA_2
-    And under this a third-level heading saying 'Trust'
-    And under this a text block containing DATA_3
-
-# DATA_1: New technology arrives all the time, and Parkinson's is complicated. The Tech Guide shows you what's available. When you read about something new, we're here to put it in context. We can't tell you what's right for your own unique situation, but we can make sure you know your options.
-
-# DATA_2: Knowing what's out there is only part of the answer. The Tech Guide helps you understand what tech actually offers and puts the tech in context - everything from “what is an app and how do I get one?” to “what is freezing of gait, why does cueing help, and why would I spend money on a wearable device instead of listening to music on my headphones?”
-
-# DATA_3: Our trusted reviews help you decide which devices or apps to trust with your money, your time and your health. We give tech to people with Parkinson's for several weeks. From their feedback, we build a single, clear review. We don't recommend or endorse any particular product, but help you make confident decisions for yourself.
+    Then there is a second-level heading saying "The Tech Guide helps you to..."
+    And there is a third-level heading saying "Discover"
+    And there is a text block starting "New technology arrives all the time"
+    And there is a third-level heading saying "Understand"
+    And there is a text block starting "Knowing what's out there is only part of the answer"
+    And there is a third-level heading saying "Trust"
+    And there is a text block starting "Our trusted reviews help you decide"
 
   @not_implemented
   Scenario: Can see a What's new area on the home page
