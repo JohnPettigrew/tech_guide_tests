@@ -9,7 +9,6 @@ module Pages
     element(:hero_image) { img(class: /_heroImage_/) }
     element(:hero_cta) { a(class: /_heroCta_/) }
     element(:content_wrapper) { section(class: /_wrapper_/) }
-    element(:benefits_heading) { section(class: /_wrapper_/).h2(class: /_heading_/) }
     # -- Flare Test Recorder --
     # https://www.testevolve.com/element-capture
 
@@ -17,12 +16,28 @@ module Pages
       goto TECH_GUIDE_URL
     end
 
-    def benefits_subheading(text)
-      content_wrapper.div(class: /card/).h3(text: text)
+    def heading2(text)
+      TE.browser.h2(text: text)
     end
 
-    def benefits_text_block(text)
-      content_wrapper.div(class: /card/).p(text: text)
+    def subheading(text)
+      TE.browser.h3(text: text)
+    end
+
+    def text_block(text)
+      content_wrapper.p(text: text)
+    end
+
+    def latest_review_list
+      TE.browser.ol(class: /_resultsList_/)
+    end
+
+    def latest_review_card
+      TE.browser.article(data_cy: "product-card")
+    end
+
+    def latest_product_list
+      TE.browser.div(class: /_products_/).ul
     end
   end
 end

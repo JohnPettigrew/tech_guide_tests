@@ -25,36 +25,68 @@ Then(/^I am taken to the product display page$/) do
 end
 
 Then(/^there is a second-level heading saying "The Tech Guide helps you to..."$/) do
-  raise 'Benefits heading is not present' unless home_page.benefits_heading.present?
-  raise 'Benefits heading text is unexpected' unless home_page.benefits_heading.text == "The Tech Guide helps you to..."
+  text = "The Tech Guide helps you to..."
+  raise 'Benefits heading is not present' unless home_page.heading2(text).present?
+end
+
+Then(/^there is a second-level heading saying "What’s new"$/) do
+  text = "What’s new"
+  raise "What’s new heading is not present" unless home_page.heading2(text).present?
 end
 
 Then(/^there is a third-level heading saying "Discover"$/) do
   text = "Discover"
-  raise "Benefits subheading '#{text}' is not present" unless home_page.benefits_subheading(text).present?
+  raise "Benefits subheading '#{text}' is not present" unless home_page.subheading(text).present?
 end
 
 Then(/^there is a third-level heading saying "Understand"$/) do
   text = "Understand"
-  raise "Benefits subheading '#{text}' is not present" unless home_page.benefits_subheading(text).present?
+  raise "Benefits subheading '#{text}' is not present" unless home_page.subheading(text).present?
 end
 
 Then(/^there is a third-level heading saying "Trust"$/) do
   text = "Trust"
-  raise "Benefits subheading '#{text}' is not present" unless home_page.benefits_subheading(text).present?
+  raise "Benefits subheading '#{text}' is not present" unless home_page.subheading(text).present?
+end
+
+Then(/^there is a third-level heading saying "Recent reviews"$/) do
+  text = "Recent reviews"
+  raise "Subheading '#{text}' is not present" unless home_page.subheading(text).present?
+end
+
+Then(/^there is a third-level heading saying "New products"$/) do
+  text = "New products"
+  raise "Subheading '#{text}' is not present" unless home_page.subheading(text).present?
 end
 
 Then(/^there is a text block starting "New technology arrives all the time"$/) do
   text = "New technology arrives all the time, and Parkinson’s is complicated. The Tech Guide shows you what’s available. When you read about something new, we’re here to put it in context. We can’t tell you what’s right for your own unique situation, but we can make sure you know your options."
-  raise "Benefits text block starting '#{text}' is not present" unless home_page.benefits_text_block(text).present?
+  raise "Benefits text block starting '#{text}' is not present" unless home_page.text_block(text).present?
 end
 
 Then(/^there is a text block starting "Knowing what's out there is only part of the answer"$/) do
   text = "Knowing what’s out there is only part of the answer. The Tech Guide helps you understand what tech actually offers and puts the tech in context - everything from “what is an app and how do I get one?” to “what is freezing of gait, why does cueing help, and why would I spend money on a wearable device instead of listening to music on my headphones?”"
-  raise "Benefits text block starting '#{text}' is not present" unless home_page.benefits_text_block(text).present?
+  raise "Benefits text block starting '#{text}' is not present" unless home_page.text_block(text).present?
 end
 
 Then(/^there is a text block starting "Our trusted reviews help you decide"$/) do
   text = "Our trusted reviews help you decide which devices or apps to trust with your money, your time and your health. We give tech to people with Parkinson’s for several weeks. From their feedback, we build a single, clear review. We don’t recommend or endorse any particular product, but help you make confident decisions for yourself."
-  raise "Benefits text block starting '#{text}' is not present" unless home_page.benefits_text_block(text).present?
+  raise "Benefits text block starting '#{text}' is not present" unless home_page.text_block(text).present?
+end
+
+Then(/^there are three cards containing the most recently published reviews in reverse chronological order$/) do
+  raise "Latest-product list doesn't include two items" unless home_page.latest_review_list.size == 2
+  raise "No actual latest-product cards" unless home_page.latest_review_card.present?
+end
+
+Then(/^each card includes the product name, a product image, the price-band indicator and a "Read review" button$/) do
+  raise "Latest-product card does not have the product name" unless home_page.latest_review_card.h4(data_cy: "product-name").present?
+  raise "Latest-product card does not have an image" unless home_page.latest_review_card.img(data_cy: "product-image").present?
+  raise "Latest-product card does not have a price range" unless home_page.latest_review_card.span(data_cy: "price-range").present?
+  raise "Latest-product card does not have a CTA button" unless home_page.latest_review_card.a(data_cy: "product-info-link").present?
+end
+
+Then(/^there is a horizontal list of five product names$/) do
+  raise "Latest products list is missing" unless home_page.latest_product_list.present?
+  raise "Latest products list doesn't have 5 items" unless home_page.latest_product_list.size == 5
 end
