@@ -9,6 +9,9 @@ module Pages
     element(:hero_image) { img(class: /_heroImage_/) }
     element(:hero_cta) { a(class: /_heroCta_/) }
     element(:content_wrapper) { section(class: /_wrapper_/) }
+    element(:latest_review_list) { ol(class: /_resultsList_/) }
+    element(:latest_review_card) { article(data_cy: "product-card") }
+    element(:latest_product_list) { div(class: /_products_/).ul }
     # -- Flare Test Recorder --
     # https://www.testevolve.com/element-capture
 
@@ -26,18 +29,6 @@ module Pages
 
     def text_block(text)
       content_wrapper.p(text: text)
-    end
-
-    def latest_review_list
-      TE.browser.ol(class: /_resultsList_/)
-    end
-
-    def latest_review_card
-      TE.browser.article(data_cy: "product-card")
-    end
-
-    def latest_product_list
-      TE.browser.div(class: /_products_/).ul
     end
   end
 end
