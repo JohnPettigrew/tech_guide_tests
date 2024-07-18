@@ -29,7 +29,6 @@ Feature: Home page
     And there is a third-level heading saying "New products"
     And there is a horizontal list of five product names
 
-  @in_progress
   Scenario: Can read latest review directly from the home page
     Given I am on the home page
     When I click on the first card in the Recent reviews section
