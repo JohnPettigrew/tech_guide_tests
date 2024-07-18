@@ -27,7 +27,7 @@ module Pages
       TE.browser.h3(text: text)
     end
 
-    def text_block(text)
+    def text_block_starting_with(text)
       content_wrapper.p(text: /\A#{text}/)
     end
   end

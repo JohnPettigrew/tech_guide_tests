@@ -61,21 +61,21 @@ end
 
 Then(/^there is a text block starting "New technology arrives all the time"$/) do
   text = "New technology arrives all the time"
-  raise "Benefits text block starting '#{text}' is not present" unless home_page.text_block(text).present?
+  raise "Benefits text block starting '#{text}' is not present" unless home_page.text_block_starting_with(text).present?
 end
 
 Then(/^there is a text block starting "Knowing what's out there is only part of the answer"$/) do
   text = "Knowing what’s out there is only part of the answer"
-  raise "Benefits text block starting '#{text}' is not present" unless home_page.text_block(text).present?
+  raise "Benefits text block starting '#{text}' is not present" unless home_page.text_block_starting_with(text).present?
 end
 
 Then(/^there is a text block starting "Our trusted reviews help you decide"$/) do
   text = "Our trusted reviews help you decide"
-  raise "Benefits text block starting '#{text}' is not present" unless home_page.text_block(text).present?
+  raise "Benefits text block starting '#{text}' is not present" unless home_page.text_block_starting_with(text).present?
 end
 
 Then(/^there are three cards containing the most recently published reviews in reverse chronological order$/) do
-  raise "Latest-product list doesn't include two items" unless home_page.latest_review_list.size == 2
+  raise "Latest-product list doesn't include two items" unless home_page.latest_review_list.count == 2
   raise "No actual latest-product cards" unless home_page.latest_review_card.present?
 end
 
@@ -88,5 +88,5 @@ end
 
 Then(/^there is a horizontal list of five product names$/) do
   raise "Latest products list is missing" unless home_page.latest_product_list.present?
-  raise "Latest products list doesn't have 5 items" unless home_page.latest_product_list.size == 5
+  raise "Latest products list doesn't have 5 items" unless home_page.latest_product_list.count == 5
 end
