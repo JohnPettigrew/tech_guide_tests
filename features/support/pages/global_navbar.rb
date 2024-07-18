@@ -16,6 +16,7 @@ module Pages
     element(:menu_entry_3_highlighted) { header.nav(data_cy: 'nav-links').a(href: '/learn', class: /isActive/) }
     element(:menu_entry_4_highlighted) { header.nav(data_cy: 'nav-links').a(href: '/help', class: /isActive/) }
     element(:main_puk_button) { header.nav(data_cy: 'nav-links').li(class: /pukLink/) }
+    element(:main_puk_button_link) { header.nav(data_cy: 'nav-links').li(class: /pukLink/).a.href }
     element(:log_in_button) { header.nav(data_cy: 'nav-links').button(text: /Log\s?in/) }
     element(:sign_up_button) { header.nav(data_cy: 'nav-links').button(text: /Sign up/i) }
 

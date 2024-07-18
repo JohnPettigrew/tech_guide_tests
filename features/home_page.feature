@@ -29,12 +29,11 @@ Feature: Home page
     And there is a third-level heading saying "New products"
     And there is a horizontal list of five product names
 
-  @not_implemented
+  @in_progress
   Scenario: Can read latest review directly from the home page
     Given I am on the home page
-    When I click the "Read review" button on the first card in the Recent reviews section
+    When I click on the first card in the Recent reviews section
     Then I see the PDP for that product
-    And the review tab is selected
     And I am scrolled to the position of the review
 
   @not_implemented
