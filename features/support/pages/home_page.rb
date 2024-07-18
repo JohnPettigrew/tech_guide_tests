@@ -28,7 +28,7 @@ module Pages
     end
 
     def text_block(text)
-      content_wrapper.p(text: text)
+      content_wrapper.p(text: /\A#{text}/)
     end
   end
 end
