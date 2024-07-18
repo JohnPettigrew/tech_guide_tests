@@ -36,13 +36,10 @@ Feature: Home page
     Then I see the PDP for that product
     And I am scrolled to the position of the review
 
-  @not_implemented
   Scenario: Can read the latest product page directly from the home page
     Given I am on the home page
-    When I click the "Read review" button on the first card in the Recent reviews section
+    When I click on the first card in the New products section
     Then I see the PDP for that product
-    And the review tab is selected
-    And I am scrolled to the position of the review
 
   @not_implemented
   Scenario: Can sign up to the email newsletter from the home page
