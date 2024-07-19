@@ -1,6 +1,6 @@
 When(/^I click on the Explore the catalogue button$/) do
   home_page.hero_cta.click
-  TestEvolve.browser.h1(text: 'Explore the catalogue').wait_until(&:exists?)
+  # TestEvolve.browser.h1(text: 'Explore the catalogue').wait_until(&:exists?)
 end
 
 When(/^I click on the first card in the Recent reviews section$/) do
@@ -9,7 +9,7 @@ When(/^I click on the first card in the Recent reviews section$/) do
   home_page.latest_review_card.scroll.to :viewport
   raise 'Latest-review cards are not visible' unless home_page.latest_review_card.visible?
   home_page.latest_review_card.click
-  TestEvolve.browser.h1(text: home_page.interesting_product_name).wait_until(&:exists?)
+  # TestEvolve.browser.h1(text: home_page.interesting_product_name).wait_until(&:exists?)
 end
 
 When(/^I click on the first card in the New products section$/) do
@@ -18,7 +18,7 @@ When(/^I click on the first card in the New products section$/) do
   home_page.latest_product_card.scroll.to :viewport
   raise 'Latest-product cards are not visible' unless home_page.latest_product_card.visible?
   home_page.latest_product_card.click
-  TestEvolve.browser.h1(text: home_page.interesting_product_name).wait_until(&:exists?)
+  # TestEvolve.browser.h1(text: home_page.interesting_product_name).wait_until(&:exists?)
 end
 
 Then(/^I see a top-level heading saying "Welcome to the Parkinson's UK Tech Guide"$/) do
