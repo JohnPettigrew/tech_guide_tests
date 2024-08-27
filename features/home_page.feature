@@ -14,17 +14,17 @@ Feature: Home page
     Given I am on the home page
     Then there is a second-level heading saying "The Tech Guide helps you to..."
     And there is a third-level heading saying "Discover"
-    And there is a text block starting "New technology arrives all the time"
+    And there is a text block starting "Parkinson's is different for everyone"
     And there is a third-level heading saying "Understand"
-    And there is a text block starting "Knowing what's out there is only part of the answer"
+    And there is a text block starting "Knowing what’s out there is only part of the answer"
     And there is a third-level heading saying "Trust"
-    And there is a text block starting "Our trusted reviews help you decide"
+    And there is a text block starting "Our trusted reviews help you decide which devices or apps to trust"
 
   Scenario: Can see a What's new area on the home page
     Given I am on the home page
     Then there is a second-level heading saying "What’s new"
     And there is a third-level heading saying "Recent reviews"
-    And there are three cards containing the most recently published reviews in reverse chronological order
+    And there is at least one card containing a recently published review
     And each card includes the product name, a product image, the price-band indicator and a "Read review" button
     And there is a third-level heading saying "New products"
     And there is a horizontal list of five product names

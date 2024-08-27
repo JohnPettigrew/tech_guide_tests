@@ -1,5 +1,5 @@
 Feature: Global navbar
-
+  
   Scenario: Desktop navbar exists
     Given I am on the home page
     Then I see the global navbar

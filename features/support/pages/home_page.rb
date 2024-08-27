@@ -13,7 +13,7 @@ module Pages
     element(:latest_review_list) { ol(class: /_resultsList_/) }
     element(:latest_review_card) { article(data_cy: 'product-card') }
     element(:latest_review_card_name) { article(data_cy: 'product-card').h4.text }
-    element(:latest_review_card_link) { ol(class: /_resultsList_/).a(class: /_outerWrapper_/).href } # Don't really like this because it's different to the way we select the card itself, but I can't get the #parent selector to do anything useful, and the anchor tag is parent to the article. That's how Cygnet have got the link to span the whole card.
+    element(:latest_review_card_link) { ol(class: /_resultsList_/).a(data_cy: 'product-info-link').href }
     element(:latest_product_list) { div(class: /_products_/).ul }
     element(:latest_product_card) { div(class: /_products_/).ul.li.a }
     # -- Flare Test Recorder --
