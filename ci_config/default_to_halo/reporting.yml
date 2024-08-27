@@ -1,29 +1,21 @@
-&actual_reporting
-
 failure_screenshots: true
 resize_for_screenshots: false
-
 local:
-
   html_report: true
   realtime_failure: false
   junit: true
   json: true
   rerun: true
-
 dashboard:
-  enabled: false
-  project_id: 1
+  enabled: true
   label: tech-guide-test-run
-  auth_token: 2110874793-parkinsonsuk-1:37e349c15928e3a329eec80ae81b1aea60cd45bcd2829918b34d8663b13c075c
+  project_id: 1
+  auth_token: >-
+    2110874793-parkinsonsuk-1:37e349c15928e3a329eec80ae81b1aea60cd45bcd2829918b34d8663b13c075c
   scheduled_updates: false
   scheduled_interval: 10
-
 testrail:
   enabled: false
   domain: example-domain
   project_id: 1
   test_run_id: 0
-
-
-<%= IO.read(filename) if File.exists?(filename) %>

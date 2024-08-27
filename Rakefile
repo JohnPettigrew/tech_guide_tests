@@ -11,38 +11,21 @@ task default: 'test:rubocop'
 # The below implementation demonstrates our desired functionality but needs to be done in a programmatic way to work cross platform
 
 namespace :development do
+  desc 'Local Chrome run of the scenarios tagged "working"'
+  task :working_on_it do
+    ENV['CONFIG_DIR'] = 'ci_config/working'
+    system 'CONFIG_DIR=ci_config/working bundle exec cucumber features --tags "(@working)"'
+  end
+
   desc 'Local Chrome run of implemented tests only'
   task :implemented_tests do
     ENV['CONFIG_DIR'] = 'ci_config/default'
     system 'CONFIG_DIR=ci_config/default bundle exec cucumber features --tags "(not @not_implemented)"'
   end
 
-  desc 'Local Chrome run of the scenarios tagged "working"'
-  task :working_on_it do
-    ENV['CONFIG_DIR'] = 'ci_config/working'
-    system 'CONFIG_DIR=ci_config/working bundle exec cucumber features --tags "(@working)"'
+  desc 'Runs all implemented scenarios in Chrome and sends to Halo'
+  task 'default_to_Halo' do
+    ENV['CONFIG_DIR'] = 'ci_config/default_to_halo'
+    system 'CONFIG_DIR=ci_config/default_to_halo bundle exec cucumber features --tags "(not @not_implemented)"'
   end
 end
-
-# namespace :ci do
-#   desc 'Run tests using specific configs'
-#   task :demo_chrome do
-#     ENV['CONFIG_DIR'] = 'ci_config/chrome'
-#     system 'parallel_cucumber features'
-#   rescue StandardError => e
-#     puts "At least one test failed, please check your reports. #{e}"
-#   end
-
-#   task :lighthouse do
-#     system 'parallel_cucumber -n 3 features -o "-t @lighthouse"'
-#   rescue StandardError => e
-#     puts "At least one test failed, please check your reports. #{e}"
-#   end
-
-#   task :demo_firefox do
-#     ENV['CONFIG_DIR'] = 'ci_config/firefox'
-#     system 'parallel_cucumber features'
-#   rescue StandardError => e
-#     puts "At least one test failed, please check your reports. #{e}"
-#   end
-# end
