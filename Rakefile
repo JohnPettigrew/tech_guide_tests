@@ -31,3 +31,15 @@ namespace :ci do
     puts "At least one test failed, please check your reports. #{e}"
   end
 end
+
+desc 'Local Chrome run of implemented tests only'
+task :Default do
+  ENV['CONFIG_DIR'] = 'ci_config/default'
+  system 'CONFIG_DIR=ci_config/default bundle exec cucumber features --tags "(not @not_implemented)"'
+end
+
+desc 'Just the scenarios tagged "working"'
+task :Working do
+  ENV['CONFIG_DIR'] = 'ci_config/working'
+  system 'CONFIG_DIR=ci_config/working bundle exec cucumber features --tags "(@working)"'
+end
