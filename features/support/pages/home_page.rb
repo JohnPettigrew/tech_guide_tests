@@ -23,6 +23,10 @@ module Pages
       goto TECH_GUIDE_URL
     end
 
+    def wait_for_page_load
+      TestEvolve.browser.h1(text: 'Welcome to the Parkinson’s UK Tech Guide').wait_until(&:exists?)
+    end
+
     def heading2(text)
       TE.browser.h2(text: text)
     end

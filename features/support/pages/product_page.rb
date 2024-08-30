@@ -12,5 +12,9 @@ module Pages
       goto CATALOGUE_URL
     end
 
+    def wait_for_page_load(product_name:)
+      TestEvolve.browser.h1(text: product_name).wait_until(&:exists?)
+    end
+
   end
 end
