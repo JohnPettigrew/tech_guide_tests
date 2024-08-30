@@ -6,8 +6,8 @@ Feature: Home page
     Then I see a top-level heading saying "Welcome to the Parkinson's UK Tech Guide"
     And I see the home-page hero text block
     And I see the hero image
-    And I see the Explore the catalogue button
-    When I click on the Explore the catalogue button
+    And I see the hero CTA button
+    When I click on the hero CTA button
     Then I am taken to the product display page
 
   Scenario: Can see a benefits area on the home page
