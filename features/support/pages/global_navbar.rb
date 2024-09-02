@@ -21,7 +21,7 @@ module Pages
     element(:sign_up_button) { header.nav(data_cy: 'nav-links').li(text: /Sign up/i) }
 
     def visit
-      goto CATALOGUE_URL
+      goto TECH_GUIDE_URL
     end
   end
 end

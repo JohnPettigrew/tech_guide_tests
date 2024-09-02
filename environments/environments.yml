@@ -3,3 +3,6 @@ local:
 
 qa:
   site_path: https://puk-tech-guide.vercel.app/
+
+live:
+  site_path: https://techguide.parkinsons.org.uk/

@@ -4,21 +4,21 @@ When(/^I click on the hero CTA button$/) do
 end
 
 When(/^I click on the first card in the Recent reviews section$/) do
-  home_page.interesting_product_name = home_page.latest_review_card_name
-  home_page.interesting_product_url = home_page.latest_review_card_link
+  home_page.recent_product_name = home_page.latest_review_card_name
+  home_page.recent_product_url = home_page.latest_review_card_link
   home_page.latest_review_card.scroll.to :viewport
   raise 'Latest-review cards are not visible' unless home_page.latest_review_card.visible?
   home_page.latest_review_card.click
-  product_page.wait_for_page_load(product_name: home_page.interesting_product_name)
+  product_page.wait_for_page_load(product_name: home_page.recent_product_name)
 end
 
 When(/^I click on the first card in the New products section$/) do
-  home_page.interesting_product_name = home_page.latest_product_card.text
-  home_page.interesting_product_url = home_page.latest_product_card.href
+  home_page.recent_product_name = home_page.latest_product_card.text
+  home_page.recent_product_url = home_page.latest_product_card.href
   home_page.latest_product_card.scroll.to :viewport
   raise 'Latest-product cards are not visible' unless home_page.latest_product_card.visible?
   home_page.latest_product_card.click
-  product_page.wait_for_page_load(product_name: home_page.interesting_product_name)
+  product_page.wait_for_page_load(product_name: home_page.recent_product_name)
 end
 
 Then(/^I see a top-level heading saying "Welcome to the Parkinson's UK Tech Guide"$/) do
@@ -110,7 +110,7 @@ Then(/^there is a horizontal list of five product names$/) do
 end
 
 Then(/^I see the PDP for that product$/) do
-  raise "Expecting to be on the PDP for #{home_page.interesting_product_name} but the URL is #{TestEvolve.browser.url}" unless TE.browser.url == home_page.interesting_product_url
+  raise "Expecting to be on the PDP for #{home_page.recent_product_name} but the URL is #{TestEvolve.browser.url}" unless TE.browser.url == home_page.recent_product_url
 end
 
 Then(/^I am scrolled to the position of the review$/) do

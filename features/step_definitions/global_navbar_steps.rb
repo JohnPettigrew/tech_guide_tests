@@ -1,6 +1,6 @@
 When(/^I click the Help link in the desktop navbar$/) do
   global_navbar.menu_entry_4.click
-  catalogue_page.wait_for_page_load
+  help_page.wait_for_page_load
 end
 
 Then(/^I see the global navbar$/) do
