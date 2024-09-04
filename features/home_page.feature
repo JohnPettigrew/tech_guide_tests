@@ -79,11 +79,10 @@ Feature: Home page
     # We plan to produce the first print edition in September 2024. The Tech Guide is still new, and we need to have enough reviews for it to be worth printing and sending out our first edition! 
     # When the time comes, we will email you to ask for your postal details.
 
-  
   @working
   Scenario: Home page in-page navigation
     Given I am on the home page
-    Then I see an in-page navigation area that lists the page sections based on existing content (The Tech Guide helps you to..., What's new?, Sign up for more), after a label "On this page"
+    Then I see an in-page navigation area that lists the page sections
     When I click on 'The Tech Guide helps you to...' 
     Then the 'The Tech Guide helps you to...' section scrolls into view
     When I click on 'What's new?' 

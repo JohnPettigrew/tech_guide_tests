@@ -21,6 +21,22 @@ When(/^I click on the first card in the New products section$/) do
   product_page.wait_for_page_load(product_name: home_page.recent_product_name)
 end
 
+When(/^I scroll down past the recent updates area$/) do
+  TestEvolve.browser.scroll.to home_page.newsletter_section
+end
+
+When(/^I click on 'The Tech Guide helps you to\.\.\.'$/) do
+  home_page.key_benefits_link.click
+end
+
+When(/^I click on 'What's new\?'$/) do
+  home_page.whats_new_link.click
+end
+
+When(/^I click on 'Sign up for more' in the in-page nav area$/) do
+  home_page.newsletter_link.click
+end
+
 Then(/^I see a top-level heading saying "Welcome to the Parkinson's UK Tech Guide"$/) do
   raise 'Home page hero missing its heading' unless home_page.hero_title.visible?
   raise 'Home page hero has wrong text' unless home_page.hero_title.text == 'Welcome to the Parkinson’s UK Tech Guide'
@@ -117,41 +133,26 @@ Then(/^I am scrolled to the position of the review$/) do
   raise 'PDP Trusted Review heading is not visible' unless product_page.trusted_review_heading.visible?
 end
 
-When(/^I scroll down past the recent updates area$/) do
-  raise 'stylesHeadingW8dw0 was not visible on the page before timeout' unless home_page.stylesHeadingW8dw0.visible?
-end
-
 Then(/^I see a second-level heading saying 'Sign up for more'$/) do
-  raise 'stylesHeadingBlht was not present on the page before timeout' unless home_page.stylesHeadingBlht.present?
+  raise 'Newsletter section title is missing' unless home_page.newsletter_section_title.present?
 end
 
-Then(/^I see an in-page navigation area that lists the page sections based on existing content \(The Tech Guide helps you to\.\.\., What's new\?, Sign up for more\), after a label "On this page"$/) do
-  raise 'stylesTitleAql9o was not visible on the page before timeout' unless home_page.stylesTitleAql9o.visible?
-  raise 'keybenefitsLink was not visible on the page before timeout' unless home_page.keybenefitsLink.visible?
-  raise 'whatsnewLink was not visible on the page before timeout' unless home_page.whatsnewLink.visible?
-  raise 'newsletterLink was not visible on the page before timeout' unless home_page.newsletterLink.visible?
-end
-
-When(/^I click on 'The Tech Guide helps you to\.\.\.'$/) do
-  home_page.keybenefitsLink.click
+Then(/^I see an in-page navigation area that lists the page sections$/) do
+  raise 'In-page navbar is not visible' unless home_page.in_page_navbar.visible?
+  raise 'In-page navbar is missing its title' unless home_page.in_page_navbar_title.visible?
+  raise 'In-page navbar is missing the benefits link' unless home_page.key_benefits_link.visible?
+  raise 'In-page navbar is missing the whats-new link' unless home_page.whats_new_link.visible?
+  raise 'In-page navbar is missing the newsletter link' unless home_page.newsletter_link.visible?
 end
 
 Then(/^the 'The Tech Guide helps you to\.\.\.' section scrolls into view$/) do
-  raise 'stylesHeadingFrjur was not visible on the page before timeout' unless home_page.stylesHeadingFrjur.visible?
-end
-
-When(/^I click on 'What's new\?'$/) do
-  home_page.whatsnewLink.click
+  raise 'Key benefits section is not visible' unless home_page.benefits_section_title.visible?
 end
 
 Then(/^the 'What's new\?' section scrolls into view$/) do
-  raise 'stylesHeadingW8dw0 was not visible on the page before timeout' unless home_page.stylesHeadingW8dw0.visible?
-end
-
-When(/^I click on 'Sign up for more' in the in-page nav area$/) do
-  home_page.newsletterLink.click
+  raise 'What\'s new section is not visible' unless home_page.whats_new_section_title.visible?
 end
 
 Then(/^the 'Sign up for more' section scrolls into view$/) do
-  raise 'stylesHeadingBlht was not visible on the page before timeout' unless home_page.stylesHeadingBlht.visible?
+  raise 'Signup form is not visible' unless home_page.newsletter_section_title.visible?
 end
