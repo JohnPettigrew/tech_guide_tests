@@ -37,6 +37,22 @@ When(/^I click on 'Sign up for more' in the in-page nav area$/) do
   home_page.newsletter_link.click
 end
 
+When(/^I enter my email address into the field labelled 'Email address'$/) do
+  home_page.email_address_field.set(home_page.random_email_address)
+end
+
+When(/^I enter my password into the field labelled 'Password'$/) do
+  home_page.password_field.set("this is a silly password")
+end
+
+When(/^I select the checkbox labelled 'Get the email updates'$/) do
+  home_page.email_subscription_checkbox.check
+end
+
+When(/^I click the 'Sign up' button$/) do
+  home_page.signup_button.click
+end
+
 Then(/^I see a top-level heading saying "Welcome to the Parkinson's UK Tech Guide"$/) do
   raise 'Home page hero missing its heading' unless home_page.hero_title.visible?
   raise 'Home page hero has wrong text' unless home_page.hero_title.text == 'Welcome to the Parkinson’s UK Tech Guide'
@@ -155,4 +171,40 @@ end
 
 Then(/^the 'Sign up for more' section scrolls into view$/) do
   raise 'Signup form is not visible' unless home_page.newsletter_section_title.visible?
+end
+
+Then(/^under this an email field labelled 'Email'$/) do
+  raise 'Email field label is not visible' unless home_page.email_address_label.visible?
+  raise 'Email field is not visible' unless home_page.email_address_field.visible?
+end
+
+Then(/^under this a field labelled 'Password'$/) do
+  raise 'Password field label is not visible' unless home_page.email_address_label.visible?
+  raise 'Password field is not visible' unless home_page.email_address_field.visible?
+end
+
+Then(/^under this a checkbox labelled 'Get the email updates'$/) do
+  raise 'Email checkbox label is not present' unless home_page.email_subscription_checkbox_label.present?
+  raise 'Email checkbox is not present' unless home_page.email_subscription_checkbox.present?
+end
+
+Then(/^under this a checkbox labelled 'Get the print edition'$/) do
+  raise 'Print checkbox label is not present' unless home_page.print_subscription_checkbox_label.present?
+  raise 'Print checkbox is not present' unless home_page.print_subscription_checkbox.present?
+end
+
+Then(/^under this a button labelled 'Sign up'$/) do
+  raise 'Signup button was not present' unless home_page.signup_button.present?
+end
+
+Then(/^I see the home page reload$/) do
+  TestEvolve.browser.p(text: 'You are now signed in to your account.').wait_until(&:exists?)
+end
+
+Then(/^I do not see the signup form$/) do
+  raise 'Signup form didn\'t disappear after signing up' if home_page.email_address_field.present?
+end
+
+Then(/^I see the signup area contains the text 'You are now signed in to your account.'$/) do
+  raise 'Signup form didn\' get replaced properly' unless home_page.newsletter_signed_up_text.present?
 end

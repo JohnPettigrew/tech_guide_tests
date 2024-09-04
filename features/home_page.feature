@@ -40,13 +40,13 @@ Feature: Home page
     When I click on the first card in the New products section
     Then I see the PDP for that product
 
-  @not_implemented
+  
+  @working
   Scenario: Can sign up to the email newsletter from the home page
     Given I am on the home page
-    When I scroll down past the recent updates area
+    And I click on 'Sign up for more' in the in-page nav area
     Then I see a second-level heading saying 'Sign up for more'
-    And under this a text block containing DATA_1
-    And under this an email field labelled 'Email address'
+    And under this an email field labelled 'Email'
     And under this a field labelled 'Password'
     And under this a checkbox labelled 'Get the email updates'
     And under this a checkbox labelled 'Get the print edition'
@@ -55,8 +55,9 @@ Feature: Home page
     And I enter my password into the field labelled 'Password'
     And I select the checkbox labelled 'Get the email updates'
     And I click the 'Sign up' button
-    Then I see the home page
-    And I see a flash message 'Thank you for creating an account on the Tech Guide. You will now get periodic updates from the Tech Guide (no more often than monthly).'
+    Then I see the home page reload
+    And I do not see the signup form
+    And I see the signup area contains the text 'You are now signed in to your account.'
 
   @not_implemented
   Scenario: Can sign up to the print edition from the home page
@@ -79,7 +80,7 @@ Feature: Home page
     # We plan to produce the first print edition in September 2024. The Tech Guide is still new, and we need to have enough reviews for it to be worth printing and sending out our first edition! 
     # When the time comes, we will email you to ask for your postal details.
 
-  @working
+  
   Scenario: Home page in-page navigation
     Given I am on the home page
     Then I see an in-page navigation area that lists the page sections
