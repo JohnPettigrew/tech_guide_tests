@@ -116,3 +116,42 @@ end
 Then(/^I am scrolled to the position of the review$/) do
   raise 'PDP Trusted Review heading is not visible' unless product_page.trusted_review_heading.visible?
 end
+
+When(/^I scroll down past the recent updates area$/) do
+  raise 'stylesHeadingW8dw0 was not visible on the page before timeout' unless home_page.stylesHeadingW8dw0.visible?
+end
+
+Then(/^I see a second-level heading saying 'Sign up for more'$/) do
+  raise 'stylesHeadingBlht was not present on the page before timeout' unless home_page.stylesHeadingBlht.present?
+end
+
+Then(/^I see an in-page navigation area that lists the page sections based on existing content \(The Tech Guide helps you to\.\.\., What's new\?, Sign up for more\), after a label "On this page"$/) do
+  raise 'stylesTitleAql9o was not visible on the page before timeout' unless home_page.stylesTitleAql9o.visible?
+  raise 'keybenefitsLink was not visible on the page before timeout' unless home_page.keybenefitsLink.visible?
+  raise 'whatsnewLink was not visible on the page before timeout' unless home_page.whatsnewLink.visible?
+  raise 'newsletterLink was not visible on the page before timeout' unless home_page.newsletterLink.visible?
+end
+
+When(/^I click on 'The Tech Guide helps you to\.\.\.'$/) do
+  home_page.keybenefitsLink.click
+end
+
+Then(/^the 'The Tech Guide helps you to\.\.\.' section scrolls into view$/) do
+  raise 'stylesHeadingFrjur was not visible on the page before timeout' unless home_page.stylesHeadingFrjur.visible?
+end
+
+When(/^I click on 'What's new\?'$/) do
+  home_page.whatsnewLink.click
+end
+
+Then(/^the 'What's new\?' section scrolls into view$/) do
+  raise 'stylesHeadingW8dw0 was not visible on the page before timeout' unless home_page.stylesHeadingW8dw0.visible?
+end
+
+When(/^I click on 'Sign up for more' in the in-page nav area$/) do
+  home_page.newsletterLink.click
+end
+
+Then(/^the 'Sign up for more' section scrolls into view$/) do
+  raise 'stylesHeadingBlht was not visible on the page before timeout' unless home_page.stylesHeadingBlht.visible?
+end

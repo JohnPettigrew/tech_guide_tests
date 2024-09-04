@@ -4,6 +4,18 @@ module Pages
   end
 
   class HomePage < TestEvolve::Core::PageObject
+    element(:newsletterLink) { a(href: "#newsletter") }
+    element(:whatsnewLink) { a(href: "#whatsNew") }
+    element(:stylesHeadingFrjur) { h2(class: "styles_heading__FRJUr") }
+    element(:whatsnewLink) { a(href: "#whatsNew") }
+    element(:keybenefitsLink) { a(href: "#keyBenefits") }
+    element(:newsletterLink) { a(href: "#newsletter") }
+    element(:whatsnewLink) { a(href: "#whatsNew") }
+    element(:keybenefitsLink) { a(href: "#keyBenefits") }
+    element(:stylesTitleAql9o) { h3(class: "styles_title__aqL9O") }
+    element(:stylesContentM6jixDiv) { div(class: "styles_content__m6jIx") }
+    element(:stylesHeadingBlht) { h2(class: "styles_heading__bLHt_") }
+    element(:stylesHeadingW8dw0) { h2(class: "styles_heading__W8DW0") }
     attr_accessor :recent_product_name, :recent_product_url
     element(:hero_section) { section(class: /_hero_/) }
     element(:hero_title) { section(class: /_hero_/).h1(class: /_heroHeading_/) }
@@ -21,6 +33,9 @@ module Pages
     element(:latest_product_card) { section(id: 'whatsNew').div(class: /_products_/).ul.li.a }
     element(:newsletter_section) { section(id: 'newsletter') }
     # -- Flare Test Recorder --
+  # https://techguide.parkinsons.org.uk/#newsletter
+  # https://techguide.parkinsons.org.uk/#whatsNew
+  # https://techguide.parkinsons.org.uk/
     # https://www.testevolve.com/element-capture
 
     def visit
