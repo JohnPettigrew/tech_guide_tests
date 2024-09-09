@@ -1,5 +1,6 @@
 Given(/^I am on the home page$/) do
   home_page.visit
+  TestEvolve.audit('home_page')
 end
 
 Given(/^I am a visitor$/) do

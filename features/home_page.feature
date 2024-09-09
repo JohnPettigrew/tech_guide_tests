@@ -1,4 +1,7 @@
 Feature: Home page
+  @axe
+  Scenario: Home page is accessible
+    Given I am on the home page
   
   Scenario: Can see a hero area on the home page
     Given I am on the home page

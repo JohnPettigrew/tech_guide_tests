@@ -29,3 +29,9 @@ namespace :development do
     system 'CONFIG_DIR=ci_config/default_to_halo bundle exec cucumber features --tags "(not @not_implemented)"'
   end
 end
+
+desc 'Run axe accessibility audit and send results to Halo'
+task :axe_audit do
+  ENV['CONFIG_DIR'] = 'ci_config/axe_audit'
+  system 'CONFIG_DIR=ci_config/axe_audit bundle exec cucumber features --tags "(@axe)"'
+end

@@ -1,0 +1,21 @@
+failure_screenshots: true
+resize_for_screenshots: false
+local:
+  html_report: true
+  realtime_failure: false
+  junit: true
+  json: true
+  rerun: true
+dashboard:
+  enabled: true
+  label: Tech Guide axe audit
+  project_id: 1
+  auth_token: >-
+    619001647-parkinsonsuk-1:8b6076752f37eed41e5772c24e238ec63862bef2ba9d4c28ec7145919168872b
+  scheduled_updates: false
+  scheduled_interval: 10
+testrail:
+  enabled: false
+  domain: example-domain
+  project_id: 1
+  test_run_id: 0
