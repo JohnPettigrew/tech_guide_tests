@@ -1,6 +1,5 @@
 require 'rubocop/rake_task'
 require 'parallel_tests/tasks'
-require 'dotenv/load'
 
 namespace :test do
   desc 'Runs the rubocop linter'

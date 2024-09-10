@@ -1,9 +1,9 @@
 When(/^I enter my email address into the Email field$/) do
-  login_page.email_field.set(ENV['DEFAULT_USERNAME'])
+  login_page.email_field.set(TestEvolve.environment['DEFAULT_USERNAME'])
 end
 
 When(/^I enter my password into the Password field$/) do
-  login_page.password_field.set(ENV['DEFAULT_PASSWORD'])
+  login_page.password_field.set(TestEvolve.environment['DEFAULT_PASSWORD'])
 end
 
 When(/^I click the Continue button$/) do

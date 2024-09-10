@@ -55,7 +55,6 @@ GEM
     cucumber-tag-expressions (6.1.0)
     diff-lcs (1.5.1)
     domain_name (0.6.20240107)
-    dotenv (3.1.2)
     drb (2.2.1)
     eventmachine (1.2.7)
     eyes_core (6.3.5)
@@ -225,7 +224,6 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  dotenv
   test-evolve!
 
 BUNDLED WITH
