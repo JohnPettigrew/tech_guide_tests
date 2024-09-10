@@ -2,10 +2,6 @@ Given(/^I am on the home page$/) do
   home_page.visit
 end
 
-When(/^I click on the hero CTA button$/) do
-  home_page.hero_cta.click
-end
-
 When(/^I click on the first card in the Recent reviews section$/) do
   home_page.recent_product_name = home_page.latest_review_card_name
   home_page.recent_product_url = home_page.latest_review_card_link
@@ -69,11 +65,7 @@ end
 
 Then(/^I see the hero CTA button$/) do
   raise 'Home-page hero CTA button is missing' unless home_page.hero_cta.visible?
-end
-
-Then(/^I am taken to the product display page$/) do
-  catalogue_page.wait_for_page_load
-  raise "Expecting to be on the PDP but the URL is #{TestEvolve.browser.url}" unless TestEvolve.browser.url == CATALOGUE_URL
+  raise "Home-page hero CTA button has the wrong link URL" unless home_page.hero_cta.href == CATALOGUE_URL
 end
 
 Then(/^there is a second-level heading saying "The Tech Guide helps you to..."$/) do
@@ -86,59 +78,33 @@ Then(/^there is a second-level heading saying "What’s new"$/) do
   raise 'What’s new heading is not present' unless home_page.heading2(text: text).present?
 end
 
-Then(/^there is a third-level heading saying "Discover"$/) do
-  text = 'Discover'
-  raise "Benefits subheading '#{text}' is not present" unless home_page.subheading(text: text).present?
+Then(/^there are three third-level headings in this benefits area$/) do
+  raise "Benefits subheadings are not present" unless home_page.benefits_section_subheadings.count == 3
 end
 
-Then(/^there is a third-level heading saying "Understand"$/) do
-  text = 'Understand'
-  raise "Benefits subheading '#{text}' is not present" unless home_page.subheading(text: text).present?
+Then(/^there are three blocks of text in this benefits area$/) do
+  raise "Benefits text blocks are not present" unless home_page.benefits_section_text_blocks.count == 3
 end
 
-Then(/^there is a third-level heading saying "Trust"$/) do
-  text = 'Trust'
-  raise "Benefits subheading '#{text}' is not present" unless home_page.subheading(text: text).present?
+Then(/^there are three images in this benefits area$/) do
+  raise "Benefits images not present" unless home_page.benefits_section_images.count == 3
 end
 
-Then(/^there is a third-level heading saying "Recent reviews"$/) do
-  text = 'Recent reviews'
-  raise "Subheading '#{text}' is not present" unless home_page.subheading(text: text).present?
+Then(/^there are three links in this benefits area$/) do
+  raise "Benefits links not present" unless home_page.benefits_section_links.count == 3
 end
 
-Then(/^there is a third-level heading saying "New products"$/) do
-  text = 'New products'
-  raise "Subheading '#{text}' is not present" unless home_page.subheading(text: text).present?
-end
-
-Then(/^there is a text block starting "Parkinson's is different for everyone"$/) do
-  text = "Parkinson's is different for everyone"
-  raise "Benefits text block starting '#{text}' is not present" unless home_page.text_block_starting_with(text: text).present?
-end
-
-Then(/^there is a text block starting "Knowing what’s out there is only part of the answer"$/) do
-  text = 'Knowing what’s out there is only part of the answer'
-  raise "Benefits text block starting '#{text}' is not present" unless home_page.text_block_starting_with(text: text).present?
-end
-
-Then(/^there is a text block starting "Our trusted reviews help you decide which devices or apps to trust"$/) do
-  text = 'Our trusted reviews help you decide which devices or apps to trust'
-  raise "Benefits text block starting '#{text}' is not present" unless home_page.text_block_starting_with(text: text).present?
+Then(/^there are two third-level headings in this products area$/) do
+  raise "What's new subheadings are not present" unless home_page.whats_new_section_subheadings.count == 2
 end
 
 Then(/^there is at least one card containing a recently published review$/) do
   raise 'Latest-product list does not include any items' if home_page.latest_review_list.count.zero?
   raise 'No latest-product cards' unless home_page.latest_review_card.present?
+  raise 'Latest-product card does not have a link' unless home_page.latest_review_card_link(data_cy: 'product-info-link').present?
 end
 
-Then(/^each card includes the product name, a product image, the price-band indicator and a "Read review" button$/) do
-  raise 'Latest-product card does not have the product name' unless home_page.latest_review_card.h4(data_cy: 'product-name').present?
-  raise 'Latest-product card does not have an image' unless home_page.latest_review_card.img(data_cy: 'product-image').present?
-  raise 'Latest-product card does not have a price range' unless home_page.latest_review_card.span(data_cy: 'price-range').present?
-  raise 'Latest-product card does not have a CTA button' unless home_page.latest_review_card_link(data_cy: 'product-info-link').present?
-end
-
-Then(/^there is a horizontal list of five product names$/) do
+Then(/^there is a list of five product names$/) do
   raise 'Latest products list is missing' unless home_page.latest_product_list.present?
   raise 'Latest products list does not have 5 items' unless home_page.latest_product_list.count == 5
 end

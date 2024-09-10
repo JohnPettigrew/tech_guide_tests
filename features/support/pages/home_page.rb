@@ -20,8 +20,13 @@ module Pages
     element(:newsletter_link) { a(href: '#newsletter') }
     element(:benefits_section) { section(id: 'keyBenefits') }
     element(:benefits_section_title) { section(id: 'keyBenefits').h2 }
+    element(:benefits_section_subheadings) { section(id: 'keyBenefits').h3s }
+    element(:benefits_section_text_blocks) { section(id: 'keyBenefits').ps }
+    element(:benefits_section_images) { section(id: 'keyBenefits').images }
+    element(:benefits_section_links) { section(id: 'keyBenefits').as }
     element(:whats_new_section) { section(id: 'whatsNew') }
     element(:whats_new_section_title) { section(id: 'whatsNew').h2 }
+    element(:whats_new_section_subheadings) { section(id: 'whatsNew').h3s }
     element(:latest_review_list) { section(id: 'whatsNew').ol(class: /_resultsList_/) }
     element(:latest_review_card) { section(id: 'whatsNew').ol(class: /_resultsList_/).article(data_cy: 'product-card') }
     element(:latest_review_card_name) { section(id: 'whatsNew').ol(class: /_resultsList_/).article(data_cy: 'product-card').h4.text }
@@ -56,10 +61,6 @@ module Pages
 
     def heading2(text:)
       TE.browser.h2(text: text)
-    end
-
-    def subheading(text:)
-      TE.browser.h3(text: text)
     end
 
     def text_block_starting_with(text:)
