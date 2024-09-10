@@ -24,5 +24,9 @@ module Pages
       TestEvolve.browser.h1(text: product_name).wait_until(&:exists?)
     end
 
+    def scan_for_accessibility
+      TestEvolve.audit('product_page')
+    end
+
   end
 end

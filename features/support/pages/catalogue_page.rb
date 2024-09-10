@@ -15,5 +15,9 @@ module Pages
       TestEvolve.browser.h1(text: 'Explore the catalogue').wait_until(&:exists?)
     end
 
+    def scan_for_accessibility
+      TestEvolve.audit('catalogue_page')
+    end
+
   end
 end
