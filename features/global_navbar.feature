@@ -15,8 +15,29 @@ Feature: Global navbar
     And I see a Learn link in the desktop navbar
     And I see a Help link in the desktop navbar
 
-  Scenario: I see Tech Guide profile buttons in the desktop navbar
+  Scenario: I see the option to log in or sign up in the desktop navbar as a visitor
     Given I am on the home page
+    And I am a visitor
+    Then I see a Log in button in the desktop navbar
+    And I see a Sign up button in the desktop navbar
+@working
+  Scenario: I can sign in to my account
+    Given I am on the home page
+    And I am a visitor
+    When I click the Log in button
+    Then I am taken to the login page
+    When I enter my email address into the Email field
+    And I click the Continue button
+    Then I see the Password field
+    When I enter my password into the Password field
+    And I click the Continue button
+    Then I am taken to the home page
+    And I see the My profile button in the global navbar
+ 
+  @not_implemented
+  Scenario: I see the profile buttons in the desktop navbar when signed in
+    Given I am on the home page
+    And I am a user
     Then I see a Log in button in the desktop navbar
     And I see a Sign up button in the desktop navbar
 

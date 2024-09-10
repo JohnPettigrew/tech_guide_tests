@@ -4,7 +4,6 @@ end
 
 When(/^I click on the hero CTA button$/) do
   home_page.hero_cta.click
-  catalogue_page.wait_for_page_load
 end
 
 When(/^I click on the first card in the Recent reviews section$/) do
@@ -13,7 +12,6 @@ When(/^I click on the first card in the Recent reviews section$/) do
   home_page.latest_review_card.scroll.to :viewport
   raise 'Latest-review cards are not visible' unless home_page.latest_review_card.visible?
   home_page.latest_review_card.click
-  product_page.wait_for_page_load(product_name: home_page.recent_product_name)
 end
 
 When(/^I click on the first card in the New products section$/) do
@@ -22,7 +20,6 @@ When(/^I click on the first card in the New products section$/) do
   home_page.latest_product_card.scroll.to :viewport
   raise 'Latest-product cards are not visible' unless home_page.latest_product_card.visible?
   home_page.latest_product_card.click
-  product_page.wait_for_page_load(product_name: home_page.recent_product_name)
 end
 
 When(/^I scroll down past the recent updates area$/) do
@@ -75,6 +72,7 @@ Then(/^I see the hero CTA button$/) do
 end
 
 Then(/^I am taken to the product display page$/) do
+  catalogue_page.wait_for_page_load
   raise "Expecting to be on the PDP but the URL is #{TestEvolve.browser.url}" unless TestEvolve.browser.url == CATALOGUE_URL
 end
 
@@ -146,6 +144,7 @@ Then(/^there is a horizontal list of five product names$/) do
 end
 
 Then(/^I see the PDP for that product$/) do
+  product_page.wait_for_page_load(product_name: home_page.recent_product_name)
   raise "Expecting to be on the PDP for #{home_page.recent_product_name} but the URL is #{TestEvolve.browser.url}" unless TE.browser.url == home_page.recent_product_url
 end
 
@@ -201,7 +200,7 @@ Then(/^under this a button labelled 'Sign up'$/) do
   raise 'Signup button was not present' unless home_page.signup_button.present?
 end
 
-Then(/^I see the home page reload$/) do
+Then(/^I see the home page refreshes$/) do
   TestEvolve.browser.p(text: 'You are now signed in to your account.').wait_until(&:exists?)
 end
 
@@ -219,5 +218,10 @@ Then(/^I select the checkbox labelled 'Get the print edition'$/) do
 end
 
 Then(/^the home page passes an accessibility audit$/) do
+  home_page.wait_for_page_load
   home_page.scan_for_accessibility
+end
+
+Then(/^I am taken to the home page$/) do
+  home_page.wait_for_page_load
 end

@@ -17,11 +17,16 @@ module Pages
     element(:menu_entry_4_highlighted?) { header.nav(data_cy: 'nav-links').a(href: '/help', class: /isActive/) }
     element(:main_puk_button) { header.nav(data_cy: 'nav-links').li(class: /pukLink/) }
     element(:main_puk_button_link) { header.nav(data_cy: 'nav-links').li(class: /pukLink/).a.href }
-    element(:log_in_button) { header.nav(data_cy: 'nav-links').li(text: /Log\s?in/) }
+    element(:log_in_button) { header.nav(data_cy: 'nav-links').li(text: /Log\s?in/i) }
     element(:sign_up_button) { header.nav(data_cy: 'nav-links').li(text: /Sign up/i) }
+    element(:my_profile_button) { header.nav(data_cy: 'nav-links').li(text: /My profile/i) }
 
     def visit
-      goto TECH_GUIDE_URL
+      raise "You can't visit the global navbar as a page object"
+    end
+
+    def log_in
+      # log_in_button.click
     end
   end
 end

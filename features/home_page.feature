@@ -44,8 +44,6 @@ Feature: Home page
     When I click on the first card in the New products section
     Then I see the PDP for that product
 
-  
-  @working
   Scenario: Can sign up to the email newsletter from the home page
     Given I am on the home page
     And I click on 'Sign up for more' in the in-page nav area
@@ -59,7 +57,7 @@ Feature: Home page
     And I enter my password into the field labelled 'Password'
     And I select the checkbox labelled 'Get the email updates'
     And I click the 'Sign up' button
-    Then I see the home page reload
+    Then I see the home page refreshes
     And I do not see the signup form
     And I see the signup area contains the text 'You are now signed in to your account.'
 
