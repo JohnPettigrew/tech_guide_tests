@@ -1,4 +1,8 @@
 Feature: Help area
+  @axe
+  Scenario: Help page is accessible
+    Given I am on the help page
+    Then the help page passes an accessibility audit
 
   @not_implemented
   Scenario: Can see the purpose of the Help section
