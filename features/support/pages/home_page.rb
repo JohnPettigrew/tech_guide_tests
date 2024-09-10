@@ -54,15 +54,15 @@ module Pages
       TestEvolve.browser.h1(text: 'Welcome to the Parkinson’s UK Tech Guide').wait_until(&:exists?)
     end
 
-    def heading2(text)
+    def heading2(text:)
       TE.browser.h2(text: text)
     end
 
-    def subheading(text)
+    def subheading(text:)
       TE.browser.h3(text: text)
     end
 
-    def text_block_starting_with(text)
+    def text_block_starting_with(text:)
       content_wrapper.p(text: /\A#{text}/)
     end
 

@@ -80,52 +80,52 @@ end
 
 Then(/^there is a second-level heading saying "The Tech Guide helps you to..."$/) do
   text = 'The Tech Guide helps you to...'
-  raise 'Benefits heading is not present' unless home_page.heading2(text).present?
+  raise 'Benefits heading is not present' unless home_page.heading2(text: text).present?
 end
 
 Then(/^there is a second-level heading saying "What’s new"$/) do
   text = 'What’s new'
-  raise 'What’s new heading is not present' unless home_page.heading2(text).present?
+  raise 'What’s new heading is not present' unless home_page.heading2(text: text).present?
 end
 
 Then(/^there is a third-level heading saying "Discover"$/) do
   text = 'Discover'
-  raise "Benefits subheading '#{text}' is not present" unless home_page.subheading(text).present?
+  raise "Benefits subheading '#{text}' is not present" unless home_page.subheading(text: text).present?
 end
 
 Then(/^there is a third-level heading saying "Understand"$/) do
   text = 'Understand'
-  raise "Benefits subheading '#{text}' is not present" unless home_page.subheading(text).present?
+  raise "Benefits subheading '#{text}' is not present" unless home_page.subheading(text: text).present?
 end
 
 Then(/^there is a third-level heading saying "Trust"$/) do
   text = 'Trust'
-  raise "Benefits subheading '#{text}' is not present" unless home_page.subheading(text).present?
+  raise "Benefits subheading '#{text}' is not present" unless home_page.subheading(text: text).present?
 end
 
 Then(/^there is a third-level heading saying "Recent reviews"$/) do
   text = 'Recent reviews'
-  raise "Subheading '#{text}' is not present" unless home_page.subheading(text).present?
+  raise "Subheading '#{text}' is not present" unless home_page.subheading(text: text).present?
 end
 
 Then(/^there is a third-level heading saying "New products"$/) do
   text = 'New products'
-  raise "Subheading '#{text}' is not present" unless home_page.subheading(text).present?
+  raise "Subheading '#{text}' is not present" unless home_page.subheading(text: text).present?
 end
 
 Then(/^there is a text block starting "Parkinson's is different for everyone"$/) do
   text = "Parkinson's is different for everyone"
-  raise "Benefits text block starting '#{text}' is not present" unless home_page.text_block_starting_with(text).present?
+  raise "Benefits text block starting '#{text}' is not present" unless home_page.text_block_starting_with(text: text).present?
 end
 
 Then(/^there is a text block starting "Knowing what’s out there is only part of the answer"$/) do
   text = 'Knowing what’s out there is only part of the answer'
-  raise "Benefits text block starting '#{text}' is not present" unless home_page.text_block_starting_with(text).present?
+  raise "Benefits text block starting '#{text}' is not present" unless home_page.text_block_starting_with(text: text).present?
 end
 
 Then(/^there is a text block starting "Our trusted reviews help you decide which devices or apps to trust"$/) do
   text = 'Our trusted reviews help you decide which devices or apps to trust'
-  raise "Benefits text block starting '#{text}' is not present" unless home_page.text_block_starting_with(text).present?
+  raise "Benefits text block starting '#{text}' is not present" unless home_page.text_block_starting_with(text: text).present?
 end
 
 Then(/^there is at least one card containing a recently published review$/) do
