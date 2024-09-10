@@ -69,6 +69,10 @@ module Pages
     def random_email_address
       "#{SecureRandom.uuid}@mailinator.com"
     end
+
+    def scan_for_accessibility
+      TestEvolve.audit('home_page')
+    end
   end
 end
 

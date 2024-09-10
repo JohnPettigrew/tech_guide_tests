@@ -1,3 +1,7 @@
+Given(/^I am on the home page$/) do
+  home_page.visit
+end
+
 When(/^I click on the hero CTA button$/) do
   home_page.hero_cta.click
   catalogue_page.wait_for_page_load
@@ -212,4 +216,8 @@ end
 
 Then(/^I select the checkbox labelled 'Get the print edition'$/) do
   pending
+end
+
+Then(/^the home page passes an accessibility audit$/) do
+  home_page.scan_for_accessibility
 end
