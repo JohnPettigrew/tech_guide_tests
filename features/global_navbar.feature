@@ -31,10 +31,3 @@ Feature: Global navbar
     And I click the Continue button
     Then I am taken to the home page
     And I see the My profile button in the global navbar
- 
-  @not_implemented
-  Scenario: I see the profile buttons in the desktop navbar when signed in
-    Given I am on the home page
-    And I am a user
-    Then I see a Log in button in the desktop navbar
-    And I see a Sign up button in the desktop navbar
