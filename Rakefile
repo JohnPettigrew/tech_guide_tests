@@ -1,5 +1,6 @@
 require 'rubocop/rake_task'
 require 'parallel_tests/tasks'
+require 'dotenv/load'
 
 namespace :test do
   desc 'Runs the rubocop linter'
@@ -20,7 +21,7 @@ namespace :development do
   desc 'Run all implemented functional tests and report locally only'
   task :implemented_tests do
     ENV['CONFIG_DIR'] = 'ci_config/default'
-    system 'CONFIG_DIR=ci_config/default bundle exec cucumber features --tags "not @not_implemented, @axe"'
+    system 'CONFIG_DIR=ci_config/default bundle exec cucumber features --tags "(not @axe or @not_implemented)"'
   end
 end
 
