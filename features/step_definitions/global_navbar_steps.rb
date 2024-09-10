@@ -41,9 +41,9 @@ Then(/^I see a Sign up button in the desktop navbar$/) do
 end
 
 Then(/^I see a highlighted Home link in the desktop navbar$/) do
-  raise 'Home link is not highlighted on home page' unless global_navbar.menu_entry_1_highlighted.present?
+  raise 'Home link is not highlighted on home page' unless global_navbar.menu_entry_1_highlighted?
 end
 
 Then(/^I see a highlighted Help link in the desktop navbar$/) do
-  raise 'Help link is not highlighted on help page' unless global_navbar.menu_entry_4_highlighted.present?
+  raise 'Help link is not highlighted on help page' unless global_navbar.menu_entry_4_highlighted?
 end
