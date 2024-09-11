@@ -4,15 +4,16 @@ Feature: Help area
     Given I am on the help page
     Then the help page passes an accessibility audit
 
-  @not_implemented
-  Scenario: Can see the purpose of the Help section
+  @working
+  Scenario: Help page structure is correct
     Given I am a visitor
-    And I am on the home page
-    When I click the Help link in the global navbar
-    Then I see the Help page
-    And I see a hero area
-    And I see a first-level heading saying "Help and support for the Tech Guide"
-    And I see a text block starting "The Tech Guide is here to help you find new ways to improve your quality of life as someone with Parkinson's"
+    And I am on the help page
+    Then I see a first-level heading saying "Help and support for the Tech Guide"
+    And I see the help-page hero text block
+    And I see a search field
+    And there are three subsections
+    And there is at least one help card in each subsection
+    And the first help card links to the "What is the Tech Guide?" help article
 
   @not_implemented
   Scenario: Can search for a particular Help page
@@ -44,17 +45,3 @@ Feature: Help area
     And I click the column header ID twice
     Then I see the top row has the value 'New Help article' in the Name column
     And I see the top row has the value 'Draft' in the State column
-
-  @not_implemented
-  Scenario: Cleaning up after creating a new Help article
-    Given I am an admin user
-    And I am signed into Strapi
-    And I am in the Content Manager
-    And I have clicked the Help Resources link
-    And I have clicked the ID column heading twice
-    When I click the trash can icon in the top row
-    Then I see a confirmation dialogue
-    When I click the Delete button
-    Then I see a flash message saying "Success"
-    And I see the Help Resources page
-    And the tow row does not contain "New Help article" in the Name column
