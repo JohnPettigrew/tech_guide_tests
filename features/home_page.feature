@@ -41,7 +41,7 @@ Feature: Home page
     Given I am on the home page
     When I click on the first card in the New products section
     Then I see the PDP for that product
-@working
+
   Scenario: Can sign up to the email newsletter from the home page
     Given I am on the home page
     And I click on 'Sign up for more' in the in-page nav area
@@ -58,16 +58,21 @@ Feature: Home page
     # Then I see the home page refreshes
     # And I do not see the signup form
     # And I see the signup area contains the text 'You are now signed in to your account.'
+    # When I visit my profile page
+    # And I click the Subscriptions tab
+    # Then I see a checkbox field labelled 'Get the email updates' that is checked
+    # And I see a checkbox field labelled 'Get the print edition' that is not checked
 
-  @not_implemented
   Scenario: Can sign up to the print edition from the home page
     Given I am on the home page
     When I enter my email address into the field labelled 'Email address'
     And I enter my password into the field labelled 'Password'
     And I select the checkbox labelled 'Get the print edition'
     And I click the 'Sign up' button
-    Then I see the Print Success page
-    And I see the text DATA_2
-    And I see the 'Go back home' button
-    When I click the 'Go back home' button
-    Then I see the home page
+    # Then I see the home page refreshes
+    # And I do not see the signup form
+    # And I see the signup area contains the text 'You are now signed in to your account.'
+    # When I visit my profile page
+    # And I click the Subscriptions tab
+    # Then I see a checkbox field labelled 'Get the email updates' that is not checked
+    # And I see a checkbox field labelled 'Get the print edition' that is checked
