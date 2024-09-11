@@ -1,7 +1,0 @@
-global:
-  environment: local
-  test_types:
-    - browser
-  request_logging: true
-  try_with_logging: false
-  logging_severity: info

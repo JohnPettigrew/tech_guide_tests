@@ -11,11 +11,11 @@ task default: 'test:rubocop'
 
 # The below implementation demonstrates our desired functionality but needs to be done in a programmatic way to work cross platform
 
-namespace :development do
+namespace :dev do
   desc 'Run tests tagged "@working" and report locally'
   task :working_on_it do
-    ENV['CONFIG_DIR'] = 'ci_config/working'
-    system 'CONFIG_DIR=ci_config/working bundle exec cucumber features --tags "@working"'
+    ENV['CONFIG_DIR'] = 'ci_config/default'
+    system 'CONFIG_DIR=ci_config/default bundle exec cucumber features --tags "@working"'
   end
 
   desc 'Run all implemented functional tests and report locally'
@@ -33,10 +33,18 @@ namespace :accessibility do
   end
 end
 
+namespace :qa do
+  desc 'Run all implemented tests and report locally'
+  task :all_tests do
+    ENV['CONFIG_DIR'] = 'ci_config/default'
+    system 'CONFIG_DIR=ci_config/default bundle exec cucumber features --tags "not @not_implemented"'
+  end
+end
+
 namespace :production do
   desc 'Run all implemented tests and report via Halo'
-  task 'default_to_Halo' do
-    ENV['CONFIG_DIR'] = 'ci_config/default_to_halo'
-    system 'CONFIG_DIR=ci_config/default_to_halo bundle exec cucumber features --tags "not @not_implemented"'
+  task :all_tests do
+    ENV['CONFIG_DIR'] = 'ci_config/production'
+    system 'CONFIG_DIR=ci_config/production bundle exec cucumber features --tags "not @not_implemented"'
   end
 end
