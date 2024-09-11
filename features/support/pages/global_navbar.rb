@@ -19,6 +19,7 @@ module Pages
     element(:main_puk_button_link) { header.nav(data_cy: 'nav-links').li(class: /pukLink/).a.href }
     element(:log_in_button) { header.nav(data_cy: 'nav-links').li(text: /Log\s?in/i) }
     element(:sign_up_button) { header.nav(data_cy: 'nav-links').li(text: /Sign up/i) }
+    element(:sign_out_button) { header.nav(data_cy: 'nav-links').li(text: /Sign out/i) }
     element(:my_profile_button) { header.nav(data_cy: 'nav-links').li(text: /My profile/i) }
 
     def visit
