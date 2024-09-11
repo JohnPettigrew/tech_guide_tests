@@ -1,7 +1,5 @@
 local:
   site_path: https://techguide.parkinsons.org.uk/
-  DEFAULT_USERNAME: jpettigrew@parkinsons.org.uk
-  DEFAULT_PASSWORD: ZJP*nwv2awu7wth!gdm
 
 qa:
   site_path: https://puk-tech-guide.vercel.app/

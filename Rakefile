@@ -1,5 +1,6 @@
 require 'rubocop/rake_task'
 require 'parallel_tests/tasks'
+require 'dotenv/load'
 
 namespace :test do
   desc 'Runs the rubocop linter'
@@ -17,7 +18,7 @@ namespace :development do
     system 'CONFIG_DIR=ci_config/working bundle exec cucumber features --tags "@working"'
   end
 
-  desc 'Run all implemented functional tests and report locally only'
+  desc 'Run all implemented functional tests and report locally'
   task :implemented_tests do
     ENV['CONFIG_DIR'] = 'ci_config/default'
     system 'CONFIG_DIR=ci_config/default bundle exec cucumber features --tags "(not @axe or @not_implemented)"'
@@ -25,7 +26,7 @@ namespace :development do
 end
 
 namespace :accessibility do
-  desc 'Run axe accessibility tests only (sends results to Halo)'
+  desc 'Run axe accessibility tests and report via Halo'
   task :axe_audit do
     ENV['CONFIG_DIR'] = 'ci_config/axe_audit'
     system 'CONFIG_DIR=ci_config/axe_audit bundle exec cucumber features --tags "@axe"'
@@ -33,7 +34,7 @@ namespace :accessibility do
 end
 
 namespace :production do
-  desc 'Run all implemented tests and send report to Halo'
+  desc 'Run all implemented tests and report via Halo'
   task 'default_to_Halo' do
     ENV['CONFIG_DIR'] = 'ci_config/default_to_halo'
     system 'CONFIG_DIR=ci_config/default_to_halo bundle exec cucumber features --tags "not @not_implemented"'
