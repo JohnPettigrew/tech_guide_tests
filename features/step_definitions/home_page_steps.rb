@@ -168,6 +168,7 @@ Then(/^under this a button labelled 'Sign up'$/) do
 end
 
 Then(/^I see the home page refreshes$/) do
+  # Fails with an "invalid token" when the form is submitted
   TestEvolve.browser.p(text: 'You are now signed in to your account.').wait_until(&:exists?)
 end
 
@@ -176,7 +177,6 @@ Then(/^I do not see the signup form$/) do
 end
 
 Then(/^I see the signup area contains the text 'You are now signed in to your account.'$/) do
-  pending # Fails with an "invalid token" when the form is submitted
   raise 'Signup form didn\' get replaced properly' unless home_page.newsletter_signed_up_text.present?
 end
 
