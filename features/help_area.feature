@@ -11,7 +11,7 @@ Feature: Help area
     And I see a search field
     And there are three subsections
     And there is at least one help card in each subsection
-    And the first help card links to the "What is the Tech Guide?" help article
+    And the first help card links to the 'What is the Tech Guide?' help article
 
   @working
   Scenario: Can search for a particular Help page
@@ -19,7 +19,9 @@ Feature: Help area
     When I type "bias" into the Search field
     And I click the Search button
     Then I see one search pill labelled 'bias'
-    And I see search results that include the "Transparency statement" page
+    And I see search results that include the 'Transparency statement' page
+    When I click on the first search result
+    Then I am taken to the 'Transparency statement' page
 
   @not_implemented
   Scenario: admin can add help articles

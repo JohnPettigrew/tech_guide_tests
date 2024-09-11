@@ -10,6 +10,10 @@ When(/^I click the Search button$/) do
   help_page.search_button.click
 end
 
+When(/^I click on the first search result$/) do
+  help_page.search_results.first.click
+end
+
 Then('the help page passes an accessibility audit') do
   help_page.wait_for_page_load
   help_page.scan_for_accessibility
@@ -45,7 +49,7 @@ Then(/^there is at least one help card in each subsection$/) do
   raise 'Third subsection has no help cards' unless help_page.section_3_articles.count.positive?
 end
 
-Then(/^the first help card links to the "What is the Tech Guide\?" help article$/) do
+Then(/^the first help card links to the 'What is the Tech Guide\?' help article$/) do
   raise 'First help card link is wrong' unless help_page.section_1_first_link.href == "#{help_page.url}/what-is-the-tech-guide"
 end
 
@@ -54,6 +58,12 @@ Then(/^I see one search pill labelled 'bias'$/) do
   raise 'Search pill is not visible' unless help_page.search_filter_pills.first.text == 'bias'
 end
 
-Then(/^I see search results that include the "Transparency statement" page$/) do
+Then(/^I see search results that include the 'Transparency statement' page$/) do
   raise 'Search results do not include the transparency statement' unless help_page.search_results.first.href == "#{help_page.url}/transparency-statement"
+end
+
+Then(/^I am taken to the 'Transparency statement' page$/) do
+  raise 'Individual Help page has the wrong title' unless help_page.transparency_statement_hero_title.visible?
+  raise 'Individual Help page has missing content summary' unless help_page.transparency_statement_content_summary.visible?
+  raise 'Individual Help page has missing content' unless help_page.transparency_statement_content.count.positive?
 end
