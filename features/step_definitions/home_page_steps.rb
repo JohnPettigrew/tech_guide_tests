@@ -35,7 +35,7 @@ When(/^I click on 'Sign up for more' in the in-page nav area$/) do
 end
 
 When(/^I enter my email address into the field labelled 'Email address'$/) do
-  home_page.email_address_field.set(home_page.random_email_address)
+  home_page.email_address_field.set(RandomEmailAddress.new.email)
 end
 
 When(/^I enter my password into the field labelled 'Password'$/) do

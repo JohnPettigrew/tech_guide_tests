@@ -4,8 +4,6 @@ module Pages
   end
 
   class HomePage < TestEvolve::Core::PageObject
-    require 'securerandom'
-
     attr_accessor :recent_product_name, :recent_product_url
     attr_reader :url
     element(:hero_section) { section(class: /_hero_/) }
@@ -66,14 +64,6 @@ module Pages
 
     def heading2(text:)
       TE.browser.h2(text: text)
-    end
-
-    def text_block_starting_with(text:)
-      content_wrapper.p(text: /\A#{text}/)
-    end
-
-    def random_email_address
-      "#{SecureRandom.uuid}@mailinator.com"
     end
 
     def scan_for_accessibility

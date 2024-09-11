@@ -30,7 +30,7 @@ Feature: Home page
     And there are two third-level headings in this products area
     And there is at least one card containing a recently published review
     And there is a list of five product names
-@working
+
   Scenario: Can see latest review directly from the home page
     Given I am on the home page
     When I click on the first card in the Recent reviews section
@@ -41,7 +41,7 @@ Feature: Home page
     Given I am on the home page
     When I click on the first card in the New products section
     Then I see the PDP for that product
-
+@working
   Scenario: Can sign up to the email newsletter from the home page
     Given I am on the home page
     And I click on 'Sign up for more' in the in-page nav area
