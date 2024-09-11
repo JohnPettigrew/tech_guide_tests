@@ -4,10 +4,8 @@ Feature: Help area
     Given I am on the help page
     Then the help page passes an accessibility audit
 
-  @working
   Scenario: Help page structure is correct
-    Given I am a visitor
-    And I am on the help page
+    Given I am on the help page
     Then I see a first-level heading saying "Help and support for the Tech Guide"
     And I see the help-page hero text block
     And I see a search field
@@ -15,15 +13,13 @@ Feature: Help area
     And there is at least one help card in each subsection
     And the first help card links to the "What is the Tech Guide?" help article
 
-  @not_implemented
+  @working
   Scenario: Can search for a particular Help page
-    Given I am a visitor
-    And I am on the Help page
+    Given I am on the help page
     When I type "bias" into the Search field
     And I click the Search button
-    Then I see search results that include the "Transparency statement" page
-    When I click on the "Transparency statement" entry in the search results
-    Then I see the Transparency statement page
+    Then I see one search pill labelled 'bias'
+    And I see search results that include the "Transparency statement" page
 
   @not_implemented
   Scenario: admin can add help articles

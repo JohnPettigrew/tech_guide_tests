@@ -2,6 +2,14 @@ Given(/^I am on the help page$/) do
   help_page.visit
 end
 
+When(/^I type "bias" into the Search field$/) do
+  help_page.search_field.set("bias")
+end
+
+When(/^I click the Search button$/) do
+  help_page.search_button.click
+end
+
 Then('the help page passes an accessibility audit') do
   help_page.wait_for_page_load
   help_page.scan_for_accessibility
@@ -39,4 +47,13 @@ end
 
 Then(/^the first help card links to the "What is the Tech Guide\?" help article$/) do
   raise 'First help card link is wrong' unless help_page.section_1_first_link.href == "#{help_page.url}/what-is-the-tech-guide"
+end
+
+Then(/^I see one search pill labelled 'bias'$/) do
+  raise 'Too many search pills' unless help_page.search_filter_pills.count == 1
+  raise 'Search pill is not visible' unless help_page.search_filter_pills.first.text == 'bias'
+end
+
+Then(/^I see search results that include the "Transparency statement" page$/) do
+  raise 'Search results do not include the transparency statement' unless help_page.search_results.first.href == "#{help_page.url}/transparency-statement"
 end
