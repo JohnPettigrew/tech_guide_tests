@@ -15,13 +15,9 @@ module Pages
     element(:section_3) { div(id: 'policies') }
     element(:section_3_articles) { div(id: 'policies').articles(data_cy: 'policy-card') }
 
-    element(:qTextField) { text_field(name: "q") }
-    element(:idmainsection1div1p1) { p(xpath: "//*[@id='main']/section[1]/div[1]/p[1]") }
-    element(:stylesHeadingLpyrs) { h1(class: "styles_heading__LpyRs") }
     attr_reader :url
     # -- Flare Test Recorder --
     # https://techguide.parkinsons.org.uk/help
-    # https://www.testevolve.com/element-capture
 
     def initialize
       @url = "#{TestEvolve.environment['root_url']}help"
