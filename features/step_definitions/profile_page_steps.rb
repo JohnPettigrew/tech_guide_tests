@@ -14,6 +14,26 @@ When(/^I click on the subscriptions tab label$/) do
   profile_page.subscription_tab_label.click
 end
 
+When(/^I check the 'Get the email updates' checkbox$/) do
+  profile_page.email_checkbox.set(true)
+end
+
+When(/^I uncheck the 'Get the email updates' checkbox$/) do
+  profile_page.email_checkbox.set(false)
+end
+
+When(/^I check the 'Get the print edition' checkbox$/) do
+  profile_page.print_checkbox.set(true)
+end
+
+When(/^I uncheck the 'Get the print edition' checkbox$/) do
+  profile_page.print_checkbox.set(false)
+end
+
+When(/^I click the Save button$/) do
+  profile_page.subscription_section_save_button.click
+end
+
 Then(/^the profile page passes an accessibility audit$/) do
   profile_page.wait_for_page_load
   profile_page.scan_for_accessibility
@@ -69,5 +89,9 @@ Then(/^the subscriptions tab is selected$/) do
 end
 
 Then(/^I see a Save button$/) do
-  raise 'Save button is missing' unless profile_page.subscription_section_save_button.visible?
+  profile_page.subscription_section_save_button.visible?
+end
+
+Then(/^I see a message 'Your preferences have been updated.'$/) do
+  profile_page.wait_for_save_success_message
 end

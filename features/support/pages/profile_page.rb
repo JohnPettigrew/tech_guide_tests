@@ -18,6 +18,7 @@ module Pages
     element(:print_checkbox) { input(name: 'subscribePost') }
     element(:subscription_section_heading) { h1(text: /Subscription preferences/i) }
     element(:subscription_section_save_button) { button(text: 'Save') }
+    element(:save_success_message) { p(text: "Your preferences have been updated.")}
     # -- Flare Test Recorder --
 
     def initialize
@@ -29,7 +30,11 @@ module Pages
     end
 
     def wait_for_page_load
-      TestEvolve.browser.h1(text: 'Account').wait_until(&:exists?)
+      page_heading.wait_until(&:exists?)
+    end
+
+    def wait_for_save_success_message
+      save_success_message.wait_until(&:visible?)
     end
 
     def scan_for_accessibility
