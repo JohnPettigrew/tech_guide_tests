@@ -1,8 +1,8 @@
 local:
-  site_path: https://techguide.parkinsons.org.uk/
+  url: https://techguide.parkinsons.org.uk/
 
 qa:
-  site_path: https://puk-tech-guide.vercel.app/
+  url: https://puk-tech-guide.vercel.app/
 
 live:
-  site_path: https://techguide.parkinsons.org.uk/
+  url: https://techguide.parkinsons.org.uk/
