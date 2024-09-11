@@ -14,7 +14,7 @@ When(/^I click on the first search result$/) do
   help_page.search_results.first.click
 end
 
-Then('the help page passes an accessibility audit') do
+Then(/^the help page passes an accessibility audit$/) do
   help_page.wait_for_page_load
   help_page.scan_for_accessibility
 end

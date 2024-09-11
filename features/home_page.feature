@@ -58,10 +58,12 @@ Feature: Home page
     # Then I see the home page refreshes
     # And I do not see the signup form
     # And I see the signup area contains the text 'You are now signed in to your account.'
-    # When I visit my profile page
+    # When I am on my profile page
     # And I click the Subscriptions tab
-    # Then I see a checkbox field labelled 'Get the email updates' that is checked
-    # And I see a checkbox field labelled 'Get the print edition' that is not checked
+    # Then I see a checkbox field labelled 'Get the email updates'
+    # And the 'Get the email updates' checkbox is checked
+    # And I see a checkbox field labelled 'Get the print edition'
+    # And the 'Get the print edition' checkbox is not checked
 
   Scenario: Can sign up to the print edition from the home page
     Given I am on the home page
@@ -72,7 +74,9 @@ Feature: Home page
     # Then I see the home page refreshes
     # And I do not see the signup form
     # And I see the signup area contains the text 'You are now signed in to your account.'
-    # When I visit my profile page
+    # When I am on my profile page
     # And I click the Subscriptions tab
-    # Then I see a checkbox field labelled 'Get the email updates' that is not checked
-    # And I see a checkbox field labelled 'Get the print edition' that is checked
+    # Then I see a checkbox field labelled 'Get the email updates'
+    # And the 'Get the email updates' checkbox is not checked
+    # And I see a checkbox field labelled 'Get the print edition'
+    # And the 'Get the print edition' checkbox is checked
