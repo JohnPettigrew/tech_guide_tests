@@ -4,11 +4,16 @@ module Pages
   end
 
   class CataloguePage < TestEvolve::Core::PageObject
+    attr_reader :url
     # -- Flare Test Recorder --
     # https://puk-tech-guide.vercel.app/catalogue
 
+    def initialize
+      @url = "#{TestEvolve.environment['root_url']}catalogue"
+    end
+    
     def visit
-      goto CATALOGUE_URL
+      goto @url
     end
 
     def wait_for_page_load

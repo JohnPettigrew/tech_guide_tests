@@ -4,12 +4,17 @@ module Pages
   end
 
   class HelpPage < TestEvolve::Core::PageObject
+    attr_reader :url
     # -- Flare Test Recorder --
     # https://techguide.parkinsons.org.uk/help
     # https://www.testevolve.com/element-capture
 
+    def initialize
+      @url = "#{TestEvolve.environment['root_url']}help"
+    end
+    
     def visit
-      goto HELP_URL
+      goto @url
     end
 
     def wait_for_page_load

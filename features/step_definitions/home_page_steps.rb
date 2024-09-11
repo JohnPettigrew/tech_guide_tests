@@ -65,7 +65,7 @@ end
 
 Then(/^I see the hero CTA button$/) do
   raise 'Home-page hero CTA button is missing' unless home_page.hero_cta.visible?
-  raise "Home-page hero CTA button has the wrong link URL" unless home_page.hero_cta.href == CATALOGUE_URL
+  raise "Home-page hero CTA button has the wrong link URL" unless home_page.hero_cta.href == catalogue_page.url
 end
 
 Then(/^there is a second-level heading saying "The Tech Guide helps you to..."$/) do
@@ -110,12 +110,13 @@ Then(/^there is a list of five product names$/) do
 end
 
 Then(/^I see the PDP for that product$/) do
-  product_page.wait_for_page_load(product_name: home_page.recent_product_name)
+  product_name = home_page.recent_product_url["#{TestEvolve.environment['root_url']}catalogue/".length..] # Strips the first part of the URL off to leave just the product-name part (including the referral to the subsection, if present)
+  product_page(product_name: product_name).wait_for_page_load
   raise "Expecting to be on the PDP for #{home_page.recent_product_name} but the URL is #{TestEvolve.browser.url}" unless TE.browser.url == home_page.recent_product_url
 end
 
 Then(/^I am scrolled to the position of the review$/) do
-  raise 'PDP Trusted Review heading is not visible' unless product_page.trusted_review_heading.visible?
+  raise 'PDP Trusted Review heading is not visible' unless product_page(product_name: home_page.recent_product_url[46..]).trusted_review_heading.visible?
 end
 
 Then(/^I see a second-level heading saying 'Sign up for more'$/) do

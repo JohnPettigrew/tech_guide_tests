@@ -7,6 +7,7 @@ module Pages
     require 'securerandom'
 
     attr_accessor :recent_product_name, :recent_product_url
+    attr_reader :url
     element(:hero_section) { section(class: /_hero_/) }
     element(:hero_title) { section(class: /_hero_/).h1(class: /_heroHeading_/) }
     element(:hero_text) { section(class: /_hero_/).p(class: /_heroText_/) }
@@ -51,8 +52,12 @@ module Pages
     # https://techguide.parkinsons.org.uk/
     # https://techguide.parkinsons.org.uk/?signUp=complete
 
+    def initialize
+      @url = TestEvolve.environment['root_url']
+    end
+    
     def visit
-      goto TECH_GUIDE_URL
+      goto @url
     end
 
     def wait_for_page_load

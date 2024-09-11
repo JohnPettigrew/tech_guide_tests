@@ -12,7 +12,7 @@ end
 
 Then(/^I see a button that links to the global Parkinson's UK website in the desktop navbar$/) do
   raise 'Button to global website is not visible' unless global_navbar.main_puk_button.visible?
-  raise 'Link back to global website is not correct' unless global_navbar.main_puk_button_link == PARKINSONS_UK_URL
+  raise 'Link back to global website is not correct' unless global_navbar.main_puk_button_link == 'https://www.parkinsons.org.uk/'
 end
 
 Then(/^I see a Home link in the desktop navbar$/) do

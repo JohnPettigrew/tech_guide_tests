@@ -1,8 +1,8 @@
 local:
-  url: https://techguide.parkinsons.org.uk/
+  root_url: https://techguide.parkinsons.org.uk/
 
 qa:
-  url: https://puk-tech-guide.vercel.app/
+  root_url: https://puk-tech-guide.vercel.app/
 
 live:
-  url: https://techguide.parkinsons.org.uk/
+  root_url: https://techguide.parkinsons.org.uk/
