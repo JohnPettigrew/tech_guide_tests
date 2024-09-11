@@ -4,5 +4,5 @@ local:
 qa:
   root_url: https://puk-tech-guide.vercel.app/
 
-live:
+production:
   root_url: https://techguide.parkinsons.org.uk/

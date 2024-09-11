@@ -36,8 +36,8 @@ end
 namespace :qa do
   desc 'Run all implemented tests and report locally'
   task :all_tests do
-    ENV['CONFIG_DIR'] = 'ci_config/default'
-    system 'CONFIG_DIR=ci_config/default bundle exec cucumber features --tags "not @not_implemented"'
+    ENV['CONFIG_DIR'] = 'ci_config/qa'
+    system 'CONFIG_DIR=ci_config/qa bundle exec cucumber features --tags "not @not_implemented"'
   end
 end
 

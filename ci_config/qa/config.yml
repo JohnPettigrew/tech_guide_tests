@@ -1,5 +1,5 @@
 global:
-  environment: production
+  environment: qa
   test_types:
     - browser
   request_logging: true
