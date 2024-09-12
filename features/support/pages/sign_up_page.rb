@@ -5,14 +5,12 @@ module Pages
 
   class SignUpPage < TestEvolve::Core::PageObject
     attr_reader :url, :random_email, :random_password
+
     element(:email_field) { text_field(id: 'emailAddress-field') }
     element(:password_field) { text_field(id: 'password-field') }
     element(:continue_button) { button(text: 'Continue') }
     element(:password_success_message) { p(text: 'Your password meets all the necessary requirements.') }
     element(:password_short_message) { p(text: 'Your password must contain 8 or more characters.') }
-    # -- Flare Test Recorder --
-    # https://techguide.parkinsons.org.uk/account/login/factor-one
-    # https://techguide.parkinsons.org.uk/account/login
 
     def initialize
       @url = "#{TestEvolve.environment['root_url']}account/register"

@@ -21,6 +21,7 @@ Feature: Help area
     And I see search results that include the 'Transparency statement' page
     When I click on the first search result
     Then I am taken to the 'Transparency statement' page
+    And the 'Transparency statement' page has the correct structure
 
   @not_implemented
   Scenario: admin can add help articles

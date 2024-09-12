@@ -5,9 +5,8 @@ module Pages
 
   class ProductPage < TestEvolve::Core::PageObject
     attr_reader :url
+
     element(:trusted_review_heading) { h2(text: "Trusted Review") }
-    # -- Flare Test Recorder --
-    # https://puk-tech-guide.vercel.app/catalogue
 
     def initialize(product_name: nil)
       @url = "#{TestEvolve.environment['root_url']}catalogue/#{product_name.to_s}"

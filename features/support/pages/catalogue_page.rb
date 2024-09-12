@@ -5,8 +5,6 @@ module Pages
 
   class CataloguePage < TestEvolve::Core::PageObject
     attr_reader :url
-    # -- Flare Test Recorder --
-    # https://puk-tech-guide.vercel.app/catalogue
 
     def initialize
       @url = "#{TestEvolve.environment['root_url']}catalogue"

@@ -5,6 +5,7 @@ module Pages
 
   class ProfilePage < TestEvolve::Core::PageObject
     attr_reader :url
+
     element(:page_heading) { h1(text: 'Account') }
     element(:profile_tab_label) { button(text: 'Profile') }
     element(:profile_tab_label_active?) { button(text: 'Profile', data_active: 'true') }
@@ -19,7 +20,6 @@ module Pages
     element(:subscription_section_heading) { h1(text: /Subscription preferences/i) }
     element(:subscription_section_save_button) { button(text: 'Save') }
     element(:save_success_message) { p(text: "Your preferences have been updated.")}
-    # -- Flare Test Recorder --
 
     def initialize
       @url = "#{TestEvolve.environment['root_url']}account"

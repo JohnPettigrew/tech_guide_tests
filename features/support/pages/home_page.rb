@@ -6,6 +6,7 @@ module Pages
   class HomePage < TestEvolve::Core::PageObject
     attr_accessor :recent_product_name, :recent_product_url, :recent_product_leafname
     attr_reader :url
+
     element(:hero_section) { section(class: /_hero_/) }
     element(:hero_title) { section(class: /_hero_/).h1(class: /_heroHeading_/) }
     element(:hero_text) { section(class: /_hero_/).p(class: /_heroText_/) }
@@ -44,11 +45,6 @@ module Pages
     element(:print_subscription_checkbox) { section(id: 'newsletter').form.checkbox(name: 'subscribePost') }
     element(:signup_button) { section(id: 'newsletter').form.button(type: 'submit') }
     element(:newsletter_signed_up_text) { section(id: 'newsletter').p(text: 'You are now signed in to your account.') }
-    # -- Flare Test Recorder --
-    # https://techguide.parkinsons.org.uk/#newsletter
-    # https://techguide.parkinsons.org.uk/#whatsNew
-    # https://techguide.parkinsons.org.uk/
-    # https://techguide.parkinsons.org.uk/?signUp=complete
 
     def initialize
       @url = TestEvolve.environment['root_url']

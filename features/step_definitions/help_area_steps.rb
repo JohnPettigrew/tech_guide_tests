@@ -63,6 +63,10 @@ Then(/^I see search results that include the 'Transparency statement' page$/) do
 end
 
 Then(/^I am taken to the 'Transparency statement' page$/) do
+  help_page.wait_for_transparency_statement_page_load
+end
+
+Then(/^the 'Transparency statement' page has the correct structure$/) do
   raise 'Individual Help page has the wrong title' unless help_page.transparency_statement_hero_title.visible?
   raise 'Individual Help page has missing content summary' unless help_page.transparency_statement_content_summary.visible?
   raise 'Individual Help page has missing content' unless help_page.transparency_statement_content.count.positive?

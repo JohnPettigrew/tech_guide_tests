@@ -4,6 +4,8 @@ module Pages
   end
 
   class HelpPage < TestEvolve::Core::PageObject
+    attr_reader :url
+
     element(:hero_title) { h1(text: 'Help and support for the Tech Guide') }
     element(:hero_text) { sections.first.ps }
     element(:search_field) { input(data_cy: 'search-input') }
@@ -21,10 +23,6 @@ module Pages
     element(:transparency_statement_content_summary) { section(class: /_hero_/).p(class: /_summary_/) }
     element(:transparency_statement_content) { section(class: /_hero_/).ps(class: nil) }
 
-    attr_reader :url
-    # -- Flare Test Recorder --
-    # https://techguide.parkinsons.org.uk/help
-
     def initialize
       @url = "#{TestEvolve.environment['root_url']}help"
     end
@@ -35,6 +33,10 @@ module Pages
 
     def wait_for_page_load
       TestEvolve.browser.h1(text: 'Help and support for the Tech Guide').wait_until(&:exists?)
+    end
+
+    def wait_for_transparency_statement_page_load
+      TestEvolve.browser.h1(text: 'How do we stay impartial?').wait_until(&:exists?)
     end
 
     def scan_for_accessibility
