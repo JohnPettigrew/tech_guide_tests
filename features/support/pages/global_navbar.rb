@@ -25,9 +25,5 @@ module Pages
     def visit
       raise "You can't visit the global navbar as a page object"
     end
-
-    def log_in
-      # log_in_button.click
-    end
   end
 end

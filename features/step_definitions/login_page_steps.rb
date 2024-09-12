@@ -6,7 +6,7 @@ When(/^I enter my password into the Password field$/) do
   login_page.password_field.set(ENV['DEFAULT_PASSWORD'])
 end
 
-When(/^I click the Continue button$/) do
+When(/^I click the Continue login button$/) do
   login_page.continue_button.click
 end
 
@@ -15,5 +15,5 @@ Then(/^I am taken to the login page$/) do
 end
 
 Then(/^I see the Password field$/) do
-  login_page.password_field.wait_until(&:present?)
+  login_page.password_field.wait_until(&:visible?)
 end

@@ -2,6 +2,19 @@ When(/^I click the Help link in the desktop navbar$/) do
   global_navbar.menu_entry_4.click
 end
 
+When(/^I click the Log in button in the desktop navbar$/) do
+  global_navbar.log_in_button.click
+end
+
+When(/^I click the Sign out button in the desktop navbar$/) do
+  global_navbar.sign_out_button.click
+  home_page.wait_for_page_load
+end
+
+When(/^I click the Sign up button in the desktop navbar$/) do
+  global_navbar.sign_up_button.click
+end
+
 Then(/^I see the global navbar$/) do
   raise 'Tech Guide content is not visible' unless global_navbar.content.visible?
 end
@@ -45,9 +58,6 @@ end
 
 Then(/^I see a highlighted Help link in the desktop navbar$/) do
   raise 'Help link is not highlighted on help page' unless global_navbar.menu_entry_4_highlighted?
-end
-When(/^I click the Log in button$/) do
-  global_navbar.log_in_button.click
 end
 
 Then(/^I see the My profile button in the global navbar$/) do

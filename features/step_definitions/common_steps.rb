@@ -1,5 +1,8 @@
 Given(/^I am a visitor$/) do
-  # Nothing needed - a visitor is someone without an account
+  if TE.browser.url.present? && global_navbar.sign_out_button.visible?
+    global_navbar.sign_out_button.click
+    home_page.wait_for_page_load
+  end
 end
 
 Given(/^I am a user$/) do
@@ -15,7 +18,6 @@ Given(/^I am a user$/) do
   login_page.continue_button.click
   home_page.wait_for_page_load
 end
-
 
 When(/^I scroll to the top$/) do
   TestEvolve.browser.scroll.to :top

@@ -18,7 +18,6 @@ Feature: Profile pages
     And I see a checkbox field labelled 'Get the print edition'
     And I see a Save button
 
-  @working
   Scenario: Can adjust subscription preferences
     Given I am a user
     And I am on my profile page
