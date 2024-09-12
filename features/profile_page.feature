@@ -24,6 +24,7 @@ Feature: Profile pages
     And I am on my profile page
     When I click on the subscriptions tab label
     Then the 'Get the email updates' checkbox is checked
+    And the 'Get the print edition' checkbox is not checked
     When I uncheck the 'Get the email updates' checkbox
     And I click the Save button
     Then I see a message 'Your preferences have been updated.'
@@ -32,3 +33,11 @@ Feature: Profile pages
     And I click the Save button
     Then I see a message 'Your preferences have been updated.'
     And the 'Get the email updates' checkbox is checked
+    When I check the 'Get the print edition' checkbox
+    And I click the Save button
+    Then I see a message 'Your preferences have been updated.'
+    And the 'Get the print edition' checkbox is checked
+    When I uncheck the 'Get the print edition' checkbox
+    And I click the Save button
+    Then I see a message 'Your preferences have been updated.'
+    And the 'Get the print edition' checkbox is not checked
