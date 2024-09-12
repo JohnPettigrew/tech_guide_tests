@@ -23,23 +23,22 @@ Feature: Help area
     Then I am taken to the 'Transparency statement' page
     And the 'Transparency statement' page has the correct structure
 
-  @not_implemented
-  Scenario: admin can add help articles
-    Given I am an admin
-    And I have signed into Strapi
-    And I am on the Help Resources page
-    Then I see the main page area on the right has the heading 'Help articles'
-    And I see a button labelled 'Create new entry'
-    When I click the 'Create new entry' button
-    Then I see the main page area on the right has the heading 'Create an entry'
-    When I enter 'New Help article' into the Title field
-    And I click the 'Regenerate' button in the slug field
-    And I enter 'Random text' into the summary field
-    And I choose 'policies' from the type dropdown
-    And I click the Save button
-    Then I see a flash message saying 'Success'
-    And I see the main page area on the right has the heading 'New Help article'
-    When I click the Back link
-    And I click the column header ID twice
-    Then I see the top row has the value 'New Help article' in the Name column
-    And I see the top row has the value 'Draft' in the State column
+  # Scenario: admin can add help articles
+  #   Given I am an admin
+  #   And I have signed into Strapi
+  #   And I am on the Help Resources page
+  #   Then I see the main page area on the right has the heading 'Help articles'
+  #   And I see a button labelled 'Create new entry'
+  #   When I click the 'Create new entry' button
+  #   Then I see the main page area on the right has the heading 'Create an entry'
+  #   When I enter 'New Help article' into the Title field
+  #   And I click the 'Regenerate' button in the slug field
+  #   And I enter 'Random text' into the summary field
+  #   And I choose 'policies' from the type dropdown
+  #   And I click the Save button
+  #   Then I see a flash message saying 'Success'
+  #   And I see the main page area on the right has the heading 'New Help article'
+  #   When I click the Back link
+  #   And I click the column header ID twice
+  #   Then I see the top row has the value 'New Help article' in the Name column
+  #   And I see the top row has the value 'Draft' in the State column

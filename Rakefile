@@ -18,18 +18,18 @@ namespace :dev do
     system 'CONFIG_DIR=ci_config/default bundle exec cucumber features --tags "@working"'
   end
 
-  desc 'Run all implemented functional tests and report locally'
-  task :implemented_tests do
+  desc 'Run all functional tests and report locally'
+  task :functional_tests do
     ENV['CONFIG_DIR'] = 'ci_config/default'
-    system 'CONFIG_DIR=ci_config/default bundle exec cucumber features --tags "(not @axe or @not_implemented)"'
+    system 'CONFIG_DIR=ci_config/default bundle exec cucumber features --tags "(not @axe)"'
   end
 end
 
 namespace :qa do
-  desc 'Run all implemented functional tests and report locally'
-  task :all_tests do
+  desc 'Run all functional tests and report locally'
+  task :functional_tests do
     ENV['CONFIG_DIR'] = 'ci_config/qa'
-    system 'CONFIG_DIR=ci_config/qa bundle exec cucumber features --tags "(not @axe or @not_implemented)"'
+    system 'CONFIG_DIR=ci_config/qa bundle exec cucumber features --tags "(not @axe)"'
   end
 end
 
@@ -42,9 +42,9 @@ namespace :accessibility do
 end
 
 namespace :production do
-  desc 'Run all implemented functional tests and report via Halo'
-  task :all_tests do
+  desc 'Run all functional tests and report via Halo'
+  task :functional_tests do
     ENV['CONFIG_DIR'] = 'ci_config/production'
-    system 'CONFIG_DIR=ci_config/production bundle exec cucumber features --tags "(not @axe or @not_implemented)"'
+    system 'CONFIG_DIR=ci_config/production bundle exec cucumber features --tags "(not @axe)"'
   end
 end
