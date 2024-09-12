@@ -1,6 +1,5 @@
 Feature: Account management
 
-  @working
   Scenario: Can create a new account
     Given I am on the home page
     And I am a visitor
@@ -30,5 +29,10 @@ Feature: Account management
     Then I am taken to the home page
     And I see the My profile button in the global navbar
 
-  @not_implemented
+  @working
   Scenario: Can sign out of my account
+    Given I am on the help page
+    And I am a user
+    When I click the Sign out button in the desktop navbar
+    Then I am taken to the home page
+    And I see a Log in button in the desktop navbar
