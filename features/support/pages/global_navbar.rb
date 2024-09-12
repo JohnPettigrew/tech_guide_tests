@@ -1,3 +1,5 @@
+require 'debug'
+
 module Pages
   def global_navbar
     @global_navbar ||= GlobalNavbar.new

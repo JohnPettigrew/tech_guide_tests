@@ -4,3 +4,4 @@ end
 
 source 'http://rubygems.org'
 gem 'dotenv'
+gem "debug", ">= 1.0.0"
