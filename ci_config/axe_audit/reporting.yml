@@ -8,7 +8,7 @@ local:
   rerun: true
 dashboard:
   enabled: true
-  label: Tech Guide axe audit
+  label: Accessibility audit
   project_id: 1
   auth_token: >-
     619001647-parkinsonsuk-1:8b6076752f37eed41e5772c24e238ec63862bef2ba9d4c28ec7145919168872b
