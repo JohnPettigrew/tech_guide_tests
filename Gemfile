@@ -1,3 +1,5 @@
+ruby file: ".ruby-version"
+
 source 'https://oxy.jfrog.io/oxy/api/gems/testevolve-kyuri-local' do
   gem 'test-evolve'
 end
