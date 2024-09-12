@@ -1,12 +1,17 @@
-When(/^I enter a random email address into the Email field$/) do
+When(/^I am on the sign-up page$/) do
+  sign_up_page.visit
+  sign_up_page.wait_for_page_load
+end
+
+When(/^I enter a random email address into the Email field on the sign-up page$/) do
   sign_up_page.email_field.set(sign_up_page.random_email)
 end
 
-When(/^I enter a short password into the Password field$/) do
+When(/^I enter a short password into the Password field on the sign-up page$/) do
   sign_up_page.password_field.set('short')
 end
 
-When(/^I enter a long, random password into the Password field$/) do
+When(/^I enter a long, random password into the Password field on the sign-up page$/) do
   sign_up_page.password_field.set(sign_up_page.random_password)
 end
 
@@ -14,11 +19,15 @@ When(/^I click the Continue sign-up button$/) do
   sign_up_page.continue_button.click
 end
 
+Then(/^the sign-up page passes an accessibility audit$/) do
+  sign_up_page.scan_for_accessibility
+end
+
 Then(/^I am taken to the sign-up page$/) do
   sign_up_page.wait_for_page_load
 end
 
-Then(/^I see the Password field$/) do
+Then(/^I see the Password field on the sign-up page$/) do
   sign_up_page.password_field.wait_until(&:visible?)
 end
 

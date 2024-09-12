@@ -1,10 +1,12 @@
 Given(/^I am on the home page$/) do
   home_page.visit
+  home_page.wait_for_page_load
 end
 
 When(/^I click on the first card in the Recent reviews section$/) do
   home_page.recent_product_name = home_page.latest_review_card_name
   home_page.recent_product_url = home_page.latest_review_card_link
+  home_page.recent_product_leafname = home_page.recent_product_url["#{TestEvolve.environment['root_url']}catalogue/".length..] # Strips the first part of the URL off to leave just the product-name part (including the referral to the subsection, if present)
   home_page.latest_review_card.scroll.to :viewport
   raise 'Latest-review cards are not visible' unless home_page.latest_review_card.visible?
   home_page.latest_review_card.click
@@ -35,11 +37,11 @@ When(/^I click on 'Sign up for more' in the in-page nav area$/) do
 end
 
 When(/^I enter my email address into the field labelled 'Email address'$/) do
-  home_page.email_address_field.set(RandomEmailAddress.new.email)
+  home_page.email_address_field.set(ENV['DEFAULT_USERNAME'])
 end
 
 When(/^I enter my password into the field labelled 'Password'$/) do
-  home_page.password_field.set("this is a silly password")
+  home_page.password_field.set(ENV['DEFAULT_PASSWORD'])
 end
 
 When(/^I select the checkbox labelled 'Get the email updates'$/) do
@@ -110,13 +112,12 @@ Then(/^there is a list of five product names$/) do
 end
 
 Then(/^I see the PDP for that product$/) do
-  product_name = home_page.recent_product_url["#{TestEvolve.environment['root_url']}catalogue/".length..] # Strips the first part of the URL off to leave just the product-name part (including the referral to the subsection, if present)
-  product_page(product_name: product_name).wait_for_page_load
+  product_page(product_name: home_page.recent_product_leafname).wait_for_page_load
   raise "Expecting to be on the PDP for #{home_page.recent_product_name} but the URL is #{TestEvolve.browser.url}" unless TE.browser.url == home_page.recent_product_url
 end
 
 Then(/^I am scrolled to the position of the review$/) do
-  raise 'PDP Trusted Review heading is not visible' unless product_page(product_name: home_page.recent_product_url[46..]).trusted_review_heading.visible?
+  raise 'PDP Trusted Review heading is not visible' unless product_page(product_name: home_page.recent_product_leafname).trusted_review_heading.visible?
 end
 
 Then(/^I see a second-level heading saying 'Sign up for more'$/) do
@@ -181,7 +182,7 @@ Then(/^I see the signup area contains the text 'You are now signed in to your ac
 end
 
 Then(/^I select the checkbox labelled 'Get the print edition'$/) do
-  pending
+  home_page.print_subscription_checkbox.check
 end
 
 Then(/^the home page passes an accessibility audit$/) do

@@ -1,5 +1,6 @@
 When(/^I am on my profile page$/) do
   profile_page.visit
+  profile_page.wait_for_page_load
 end
 
 When(/^I click the Subscriptions tab$/) do

@@ -4,7 +4,7 @@ module Pages
   end
 
   class HomePage < TestEvolve::Core::PageObject
-    attr_accessor :recent_product_name, :recent_product_url
+    attr_accessor :recent_product_name, :recent_product_url, :recent_product_leafname
     attr_reader :url
     element(:hero_section) { section(class: /_hero_/) }
     element(:hero_title) { section(class: /_hero_/).h1(class: /_heroHeading_/) }

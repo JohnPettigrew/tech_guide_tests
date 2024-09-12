@@ -1,5 +1,5 @@
 When(/^I click the Help link in the desktop navbar$/) do
-  global_navbar.menu_entry_4.click
+  global_navbar.help_link.click
 end
 
 When(/^I click the Log in button in the desktop navbar$/) do
@@ -8,7 +8,6 @@ end
 
 When(/^I click the Sign out button in the desktop navbar$/) do
   global_navbar.sign_out_button.click
-  home_page.wait_for_page_load
 end
 
 When(/^I click the Sign up button in the desktop navbar$/) do
@@ -29,19 +28,19 @@ Then(/^I see a button that links to the global Parkinson's UK website in the des
 end
 
 Then(/^I see a Home link in the desktop navbar$/) do
-  raise 'Home link not visible in desktop navbar' unless global_navbar.menu_entry_1.visible?
+  raise 'Home link not visible in desktop navbar' unless global_navbar.home_link.visible?
 end
 
 Then(/^I see a Catalogue link in the desktop navbar$/) do
-  raise 'Catalogue link not visible in desktop navbar' unless global_navbar.menu_entry_2.visible?
+  raise 'Catalogue link not visible in desktop navbar' unless global_navbar.catalogue_link.visible?
 end
 
 Then(/^I see a Learn link in the desktop navbar$/) do
-  raise 'Learn link not visible in desktop navbar' unless global_navbar.menu_entry_3.visible?
+  raise 'Learn link not visible in desktop navbar' unless global_navbar.learn_link.visible?
 end
 
 Then(/^I see a Help link in the desktop navbar$/) do
-  raise 'Help link not visible in desktop navbar' unless global_navbar.menu_entry_4.visible?
+  raise 'Help link not visible in desktop navbar' unless global_navbar.help_link.visible?
 end
 
 Then(/^I see a Log in button in the desktop navbar$/) do
@@ -53,11 +52,11 @@ Then(/^I see a Sign up button in the desktop navbar$/) do
 end
 
 Then(/^I see a highlighted Home link in the desktop navbar$/) do
-  raise 'Home link is not highlighted on home page' unless global_navbar.menu_entry_1_highlighted?
+  raise 'Home link is not highlighted on home page' unless global_navbar.home_link_highlighted.visible?
 end
 
 Then(/^I see a highlighted Help link in the desktop navbar$/) do
-  raise 'Help link is not highlighted on help page' unless global_navbar.menu_entry_4_highlighted?
+  raise 'Help link is not highlighted on help page' unless global_navbar.help_link_highlighted.visible?
 end
 
 Then(/^I see the My profile button in the global navbar$/) do
