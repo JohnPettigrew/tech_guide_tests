@@ -52,7 +52,7 @@ Then(/^I see one search pill labelled 'app'$/) do
 end
 
 Then(/^I see search results that include the 'What is an app\?' card$/) do
-  raise 'Search results do not include the "What is an app?" card' unless learn_page.search_results.map(&:href).include?("#{learn_page.url}/what-is-an-app-a-beginner-s-guide")
+  raise 'Search results do not include the "What is an app?" card' unless learn_page.search_results.include?("#{learn_page.url}/what-is-an-app-a-beginner-s-guide")
 end
 
 Then(/^I am taken to the 'What is an app\?' page$/) do
