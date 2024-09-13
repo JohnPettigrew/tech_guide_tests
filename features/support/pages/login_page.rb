@@ -6,6 +6,7 @@ module Pages
   class LoginPage < TestEvolve::Core::PageObject
     attr_reader :url
 
+    element(:page_heading) { h1(text: 'Sign in to Parkinson\'s UK Tech Guide') } 
     element(:email_field) { text_field(id: 'identifier-field') }
     element(:password_field) { text_field(id: 'password-field') }
     element(:continue_button) { button(text: 'Continue') }
@@ -19,7 +20,7 @@ module Pages
     end
 
     def wait_for_page_load
-      TestEvolve.browser.h1(text: 'Sign in to Parkinson\'s UK Tech Guide').wait_until(&:exists?)
+      page_heading.wait_until(&:exists?)
     end
 
     def scan_for_accessibility

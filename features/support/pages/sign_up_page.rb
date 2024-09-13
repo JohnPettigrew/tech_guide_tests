@@ -6,6 +6,7 @@ module Pages
   class SignUpPage < TestEvolve::Core::PageObject
     attr_reader :url, :random_email, :random_password
 
+    element(:page_heading) { h1(text: 'Create your account') } 
     element(:email_field) { text_field(id: 'emailAddress-field') }
     element(:password_field) { text_field(id: 'password-field') }
     element(:continue_button) { button(text: 'Continue') }
@@ -24,7 +25,7 @@ module Pages
     end
 
     def wait_for_page_load
-      TestEvolve.browser.h1(text: 'Create your account').wait_until(&:exists?)
+      page_heading.wait_until(&:exists?)
     end
 
     def scan_for_accessibility

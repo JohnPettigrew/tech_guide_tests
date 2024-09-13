@@ -55,7 +55,7 @@ module Pages
     end
 
     def wait_for_page_load
-      TestEvolve.browser.h1(text: 'Welcome to the Parkinson’s UK Tech Guide').wait_until(&:exists?)
+      hero_title.wait_until(&:exists?)
     end
 
     def heading2(text:)

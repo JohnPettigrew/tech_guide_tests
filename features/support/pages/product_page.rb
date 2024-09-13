@@ -6,7 +6,8 @@ module Pages
   class ProductPage < TestEvolve::Core::PageObject
     attr_reader :url
 
-    element(:trusted_review_heading) { h2(text: "Trusted Review") }
+    element(:overview_heading) { h2(text: 'Overview') }
+    element(:trusted_review_heading) { h2(text: 'Trusted Review') }
 
     def initialize(product_name: nil)
       @url = "#{TestEvolve.environment['root_url']}catalogue/#{product_name.to_s}"
@@ -17,7 +18,7 @@ module Pages
     end
 
     def wait_for_page_load
-      TestEvolve.browser.h2(text: 'Overview').wait_until(&:exists?)
+      overview_heading.wait_until(&:exists?)
     end
 
     def scan_for_accessibility

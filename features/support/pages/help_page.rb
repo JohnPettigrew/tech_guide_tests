@@ -32,11 +32,11 @@ module Pages
     end
 
     def wait_for_page_load
-      TestEvolve.browser.h1(text: 'Help and support for the Tech Guide').wait_until(&:exists?)
+      hero_title.wait_until(&:exists?)
     end
 
     def wait_for_transparency_statement_page_load
-      TestEvolve.browser.h1(text: 'How do we stay impartial?').wait_until(&:exists?)
+      transparency_statement_hero_title.wait_until(&:exists?)
     end
 
     def scan_for_accessibility

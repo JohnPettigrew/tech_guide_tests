@@ -6,6 +6,8 @@ module Pages
   class CataloguePage < TestEvolve::Core::PageObject
     attr_reader :url
 
+    element(:hero_title) { h1(text: 'Explore the catalogue') }
+
     def initialize
       @url = "#{TestEvolve.environment['root_url']}catalogue"
     end
@@ -15,7 +17,7 @@ module Pages
     end
 
     def wait_for_page_load
-      TestEvolve.browser.h1(text: 'Explore the catalogue').wait_until(&:exists?)
+      hero_title.wait_until(&:exists?)
     end
 
     def scan_for_accessibility
