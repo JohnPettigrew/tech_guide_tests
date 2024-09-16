@@ -10,4 +10,6 @@ If you push to this repo, you must follow the same coding practices already in p
 * EITHER create your step definitions using the TestEvolve recorder;
 * OR use well-formed and readable Ruby to create your definitions.
 
+NB Some tests require account-signin information. This is stored locally in a `.env` file that is not committed to git, for security. Contact the repo owner for the keys you need to add to this file (if it's not clear from the error messages!).
+
 The repo is owned by John Pettigrew, Senior Product Manager - Tech Guide. PRs will only be accepted from our team, but please do fork the repo if you find the approach useful for your own tests!
