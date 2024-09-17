@@ -13,6 +13,7 @@ Feature: Help area
     And there is at least one help card in each subsection
     And the first help card links to the 'What is the Tech Guide?' help article
 
+@working
   Scenario: Can search for a particular Help page
     Given I am on the help page
     When I type "bias" into the Search field

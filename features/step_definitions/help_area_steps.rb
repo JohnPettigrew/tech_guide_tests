@@ -12,7 +12,7 @@ When(/^I click the Search button$/) do
 end
 
 When(/^I click on the first search result$/) do
-  help_page.search_results.first.click
+  help_page.first_search_result.click
 end
 
 Then(/^the help page passes an accessibility audit$/) do
@@ -59,7 +59,7 @@ Then(/^I see one search pill labelled 'bias'$/) do
 end
 
 Then(/^I see search results that include the 'Transparency statement' page$/) do
-  raise 'Search results do not include the transparency statement' unless help_page.search_results.first.href == "#{help_page.url}/transparency-statement"
+  raise 'Search results do not include the transparency statement' unless help_page.first_search_result.href == "#{help_page.url}/transparency-statement"
 end
 
 Then(/^I am taken to the 'Transparency statement' page$/) do

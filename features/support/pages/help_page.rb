@@ -18,7 +18,7 @@ module Pages
     element(:section_2_articles) { div(id: 'how-to-use').articles(data_cy: 'policy-card') }
     element(:section_3) { div(id: 'policies') }
     element(:section_3_articles) { div(id: 'policies').articles(data_cy: 'policy-card') }
-    element(:search_results) { ol(data_cy: 'policies-results').as(class: /_outerWrapper_/) }
+    element(:first_search_result) { ol(data_cy: 'policies-results').as(class: /_outerWrapper_/).first }
     element(:transparency_statement_hero_title) { h1(text: 'How do we stay impartial?') }
     element(:transparency_statement_content_summary) { section(class: /_hero_/).p(class: /_summary_/) }
     element(:transparency_statement_content) { section(class: /_hero_/).ps(class: nil) }
