@@ -12,7 +12,8 @@ When(/^I click the Search button on the Learn page$/) do
 end
 
 When(/^I click on the 'What is an app\?' card$/) do
-  learn_page.apps_article_card_link.click
+  learn_page.apps_article.scroll.to :viewport
+  learn_page.apps_article.click
 end
 
 Then(/^the learn page passes an accessibility audit$/) do

@@ -16,6 +16,7 @@ When(/^I click the product filters button$/) do
 end
 
 When(/^I click 'Free'$/) do
+  catalogue_page.filters_option_free.scroll.to :viewport
   catalogue_page.filters_option_free.click
 end
 
