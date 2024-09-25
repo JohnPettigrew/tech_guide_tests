@@ -12,7 +12,6 @@ Feature: Learn area
     And there is at least one learn card
     And there is a learn card that links to the 'What is an app?' learn article
 
-@working
   Scenario: Can search for a particular Learn page
     Given I am on the learn page
     When I type 'app' into the Search field

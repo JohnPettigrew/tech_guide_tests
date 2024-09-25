@@ -22,8 +22,8 @@ Feature: Catalogue page
     And I click the product search button
     Then I see one pill
     And I see a pill labelled 'cue'
-    And I see search results that include the Cue1+
-    And I see search results that do not include Parkinson's ON
+    And I see cards that include the Cue1+
+    And I see cards that do not include Parkinson's ON
 
   Scenario: Can filter to find a particular product
     Given I am on the catalogue page
@@ -32,9 +32,9 @@ Feature: Catalogue page
     When I click 'Free'
     And I click the Apply Filters button
     Then I see a pill labelled 'Free'
-    And I see search results that include Parkinson's ON
-    And I see search results that do not include the Cue1+
+    And I see cards that include Parkinson's ON
+    And I see cards that do not include the Cue1+
     When I click the reset filters button
     Then I do not see any pills
-    And I see search results that include Parkinson's ON
-    And I see search results that include the Cue1+
+    And I see cards that include Parkinson's ON
+    And I see cards that include the Cue1+
