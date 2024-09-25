@@ -76,7 +76,8 @@ Then(/^a product card links to Parkinson's ON$/) do
 end
 
 Then(/^I do not see any pills$/) do
-  raise "There are #{catalogue_page.search_filter_pills.count} search pills when none were expected" unless catalogue_page.search_filter_pills.count.zero?
+  catalogue_page.search_filter_pills.wait_until(count: 0)
+  # raise "There are #{catalogue_page.search_filter_pills.count} search pills when none were expected" unless catalogue_page.search_filter_pills.count.zero?
 end
 
 Then(/^I see one pill$/) do
@@ -91,19 +92,19 @@ Then(/^I see a pill labelled 'Free'$/) do
   raise 'Search pill "Free" is not visible' unless catalogue_page.search_filter_pill_labels.include?('Free')
 end
 
-Then(/^I see search results that include the Cue1\+$/) do
+Then(/^I see cards that include the Cue1\+$/) do
   raise 'Search results do not include the Cue1+' unless catalogue_page.product_card_links.include?("#{catalogue_page.url}/cue1plus")
 end
 
-Then(/^I see search results that do not include the Cue1\+$/) do
+Then(/^I see cards that do not include the Cue1\+$/) do
   raise 'Search results include the Cue1+' if catalogue_page.product_card_links.include?("#{catalogue_page.url}/cue1plus")
 end
 
-Then(/^I see search results that include Parkinson's ON$/) do
+Then(/^I see cards that include Parkinson's ON$/) do
   raise search_result_links.to_s unless catalogue_page.product_card_links.include?("#{catalogue_page.url}/parkinsons-on")
 end
 
-Then(/^I see search results that do not include Parkinson's ON$/) do
+Then(/^I see cards that do not include Parkinson's ON$/) do
   raise 'Search results include Parkinson\'s ON' if catalogue_page.product_card_links.include?("#{catalogue_page.url}/parkinsons-on")
 end
 
