@@ -1,0 +1,4 @@
+app_name: My Desktop App
+image_directory: features/support/images
+find_timeout: 5
+similarity: 0.8

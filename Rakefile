@@ -34,7 +34,13 @@ namespace :qa do
 end
 
 namespace :accessibility do
-  desc 'Run axe accessibility tests and report via Halo'
+  desc 'Run axe accessibility tests on Vercel test branch and report via Halo'
+  task :axe_audit_vercel do
+    ENV['CONFIG_DIR'] = 'ci_config/axe_audit_vercel'
+    system 'CONFIG_DIR=ci_config/axe_audit_vercel bundle exec cucumber features --tags "@axe"'
+  end
+
+  desc 'Run axe accessibility tests on production and report via Halo'
   task :axe_audit do
     ENV['CONFIG_DIR'] = 'ci_config/axe_audit'
     system 'CONFIG_DIR=ci_config/axe_audit bundle exec cucumber features --tags "@axe"'

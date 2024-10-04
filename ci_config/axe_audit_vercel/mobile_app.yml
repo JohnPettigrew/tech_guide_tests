@@ -1,0 +1,19 @@
+source: browserstack
+app_path: /path/to/app
+default_timeout: 20
+browserstack:
+  local_testing: false
+  browserstack_debug: true
+  test_name: Regression Tests
+  mobile:
+    device: Test Device
+    platform: android
+local_device:
+  command_timeout: 60
+  appium_options: []
+  mobile:
+    driver: UiAutomator2
+    device_name: Samsung Galaxy Tab A
+    platform_name: Android
+    platform_version: 5.0.2
+    udid: 1a4f2d81
