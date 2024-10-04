@@ -20,7 +20,7 @@ Then(/^the learn page passes an accessibility audit$/) do
   learn_page.scan_for_accessibility
 end
 
-Then(/^I see a first-level heading saying "Learn more about technology and Parkin?son's"$/) do
+Then(/^I see a first-level heading saying "Learn more about technology \& Parkinson's"$/) do
   raise 'Page title is missing' unless learn_page.hero_title.present?
   raise 'Page title is not visible' unless learn_page.hero_title.visible?
 end

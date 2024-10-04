@@ -6,7 +6,7 @@ Feature: Learn area
 
   Scenario: Learn page structure is correct
     Given I am on the learn page
-    Then I see a first-level heading saying "Learn more about technology and Parkinson's"
+    Then I see a first-level heading saying "Learn more about technology & Parkinson's"
     And I see the learn-page hero text block
     And I see a search field on the Learn page
     And there is at least one learn card
