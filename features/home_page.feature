@@ -13,7 +13,7 @@ Feature: Home page
     Then the 'What's new?' section scrolls into view
     When I click on 'Sign up for more' in the in-page nav area
     Then the 'Sign up for more' section scrolls into view
-
+@working
   Scenario: Home page structure
     Given I am on the home page
     When I scroll to the top

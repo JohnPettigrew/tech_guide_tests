@@ -14,7 +14,7 @@ module Pages
     element(:hero_cta) { section(class: /_hero_/).a(class: /_heroCta_/) }
     element(:content_wrapper) { section(class: /_wrapper_/) }
     element(:in_page_navbar) { nav(aria_label: 'On this page') }
-    element(:in_page_navbar_title) { nav(aria_label: 'On this page').h3 }
+    element(:in_page_navbar_title) { nav(aria_label: 'On this page').h2 }
     element(:key_benefits_link) { a(href: '#keyBenefits') }
     element(:whats_new_link) { a(href: '#whatsNew') }
     element(:newsletter_link) { a(href: '#newsletter') }
@@ -29,7 +29,7 @@ module Pages
     element(:whats_new_section_subheadings) { section(id: 'whatsNew').h3s }
     element(:latest_review_list) { section(id: 'whatsNew').ol(class: /_resultsList_/) }
     element(:latest_review_card) { section(id: 'whatsNew').ol(class: /_resultsList_/).article(data_cy: 'product-card') }
-    element(:latest_review_card_name) { section(id: 'whatsNew').ol(class: /_resultsList_/).article(data_cy: 'product-card').h4.text }
+    element(:latest_review_card_name) { section(id: 'whatsNew').ol(class: /_resultsList_/).article(data_cy: 'product-card').h3.text }
     element(:latest_review_card_link) { section(id: 'whatsNew').ol(class: /_resultsList_/).a(data_cy: 'product-info-link').href }
     element(:latest_product_list) { section(id: 'whatsNew').div(class: /_products_/).ul }
     element(:latest_product_card) { section(id: 'whatsNew').div(class: /_products_/).ul.li.a }

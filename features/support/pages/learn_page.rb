@@ -12,7 +12,7 @@ module Pages
     element(:search_button) { button(name: 'submit-search') }
     element(:search_filter_pills) { as(data_cy: 'active-filter') }
     element(:search_results) { ol(data_cy: 'resources-results').as(class: /_outerWrapper_/).map(&:href) }
-    element(:articles) { ol(id: 'article-results').articles(data_cy: 'resource-card') }
+    element(:articles) { ol(data_cy: 'resources-results').articles(data_cy: 'resource-card') }
     element(:freezing_article) { article(data_slug: 'what-is-freezing-of-gait') }
     element(:freezing_article_card_link) { a(aria_label: 'What is freezing of gait?') }
     element(:apps_article) { article(data_slug: 'what-is-an-app-a-beginner-s-guide') }

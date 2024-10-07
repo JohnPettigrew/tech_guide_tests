@@ -7,10 +7,9 @@ module Pages
     attr_reader :url, :random_email, :random_password
 
     element(:page_heading) { h1(text: 'Create your account') } 
-    element(:email_field) { text_field(id: 'emailAddress-field') }
-    element(:password_field) { text_field(id: 'password-field') }
-    element(:continue_button) { button(text: 'Continue') }
-    element(:password_success_message) { p(text: 'Your password meets all the necessary requirements.') }
+    element(:email_field) { text_field(name: 'emailAddress') }
+    element(:password_field) { text_field(name: 'password') }
+    element(:continue_button) { button(text: 'Sign up') }
     element(:password_short_message) { p(text: 'Your password must contain 8 or more characters.') }
 
     def initialize

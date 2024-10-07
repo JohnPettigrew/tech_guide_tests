@@ -19,8 +19,8 @@ module Pages
     element(:search_filter_pills) { as(data_cy: 'active-filter') }
     element(:search_filter_pill_labels) { as(data_cy: 'active-filter').map(&:text) }
     element(:results_summary) { aside(class: /_searchResultsHeader_/) }
-    element(:product_cards) { ol(id: 'product-results').lis }
-    element(:product_card_links) { ol(id: 'product-results').as(data_cy: 'product-info-link').map(&:href) }
+    element(:product_cards) { ol(data_cy: 'products-results').lis }
+    element(:product_card_links) { ol(data_cy: 'products-results').as(data_cy: 'product-info-link').map(&:href) }
 
     def initialize
       @url = "#{TestEvolve.environment['root_url']}catalogue"

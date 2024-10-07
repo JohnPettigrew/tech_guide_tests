@@ -7,7 +7,7 @@ module Pages
     attr_reader :url
 
     element(:overview_heading) { h2(text: 'Overview') }
-    element(:trusted_review_heading) { h2(text: 'Trusted Review') }
+    element(:trusted_review_heading) { h2(text: 'Trusted review') }
 
     def initialize(product_name: nil)
       @url = "#{TestEvolve.environment['root_url']}catalogue/#{product_name.to_s}"

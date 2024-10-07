@@ -8,7 +8,7 @@ When(/^I enter a random email address into the Email field on the sign-up page$/
 end
 
 When(/^I enter a short password into the Password field on the sign-up page$/) do
-  sign_up_page.password_field.set('short')
+  sign_up_page.password_field.set('12edsc')
 end
 
 When(/^I enter a long, random password into the Password field on the sign-up page$/) do
@@ -31,8 +31,7 @@ Then(/^I see the Password field on the sign-up page$/) do
   sign_up_page.password_field.wait_until(&:visible?)
 end
 
-Then(/^I do not see a message confirming that my password is acceptable$/) do
-  raise 'Password success message is visible' if sign_up_page.password_success_message.visible?
+Then(/^I do not see a message that my password is not acceptable$/) do
   raise 'Password short message is visible' if sign_up_page.password_short_message.visible?
 end
 
@@ -40,6 +39,6 @@ Then(/^I see a message saying that my password is too short$/) do
   sign_up_page.password_short_message.wait_until(&:visible?)
 end
 
-Then(/^I see a message confirming that my password is acceptable$/) do
-  sign_up_page.password_success_message.wait_until(&:visible?)
+Then(/^I do not see a message saying that my password is too short$/) do
+  raise 'Long password still gives "password too short" error' if sign_up_page.password_short_message.visible?
 end

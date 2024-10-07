@@ -1,16 +1,15 @@
 Feature: Account management
-
   Scenario: Can create a new account
     Given I am on the home page
     And I am a visitor
     When I click the Sign up button in the desktop navbar
     Then I am taken to the sign-up page
-    And I do not see a message confirming that my password is acceptable
+    And I do not see a message that my password is not acceptable
     When I enter a random email address into the Email field on the sign-up page
     And I enter a short password into the Password field on the sign-up page
     Then I see a message saying that my password is too short
     When I enter a long, random password into the Password field on the sign-up page
-    Then I see a message confirming that my password is acceptable
+    Then I do not see a message saying that my password is too short
     When I click the Continue sign-up button
     # Fails at this point with an error (similar to home-page signup failure):"Sign up unsuccessful due to failed security validations. Please refresh the page to try again or reach out to support for more assistance."
     # Then I am taken to the home page
