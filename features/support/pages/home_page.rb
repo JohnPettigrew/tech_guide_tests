@@ -15,24 +15,19 @@ module Pages
     element(:content_wrapper) { section(class: /_wrapper_/) }
     element(:in_page_navbar) { nav(aria_label: 'On this page') }
     element(:in_page_navbar_title) { nav(aria_label: 'On this page').h2 }
-    element(:key_benefits_link) { a(href: '#keyBenefits') }
-    element(:whats_new_link) { a(href: '#whatsNew') }
-    element(:newsletter_link) { a(href: '#newsletter') }
-    element(:benefits_section) { section(id: 'keyBenefits') }
-    element(:benefits_section_title) { section(id: 'keyBenefits').h2 }
-    element(:benefits_section_subheadings) { section(id: 'keyBenefits').h3s }
-    element(:benefits_section_text_blocks) { section(id: 'keyBenefits').ps }
-    element(:benefits_section_images) { section(id: 'keyBenefits').images }
-    element(:benefits_section_links) { section(id: 'keyBenefits').as }
+    element(:in_page_navbar_explore_link) { a(href: /\#expl?oreCatalogue/) } # Regex on the div class because of a typo currently in the template
+    element(:in_page_navbar_whats_new_link) { a(href: '#whatsNew') }
+    element(:in_page_navbar_newsletter_link) { a(href: '#newsletter') }
+    element(:explore_section) { div(id: /expl?oreCatalogue/) } # Regex on the div class because of a typo currently in the template
+    element(:explore_section_title) { div(id: /expl?oreCatalogue/).h2 }
+    element(:explore_section_card) { div(id: /expl?oreCatalogue/).ul(class: /_cardContainer_/).li }
+    element(:explore_section_links) { div(id: /expl?oreCatalogue/).ul(class: /_cardContainer_/).as }
     element(:whats_new_section) { section(id: 'whatsNew') }
     element(:whats_new_section_title) { section(id: 'whatsNew').h2 }
-    element(:whats_new_section_subheadings) { section(id: 'whatsNew').h3s }
-    element(:latest_review_list) { section(id: 'whatsNew').ol(class: /_resultsList_/) }
-    element(:latest_review_card) { section(id: 'whatsNew').ol(class: /_resultsList_/).article(data_cy: 'product-card') }
-    element(:latest_review_card_name) { section(id: 'whatsNew').ol(class: /_resultsList_/).article(data_cy: 'product-card').h3.text }
-    element(:latest_review_card_link) { section(id: 'whatsNew').ol(class: /_resultsList_/).a(data_cy: 'product-info-link').href }
-    element(:latest_product_list) { section(id: 'whatsNew').div(class: /_products_/).ul }
-    element(:latest_product_card) { section(id: 'whatsNew').div(class: /_products_/).ul.li.a }
+    element(:whats_new_cards) { section(id: 'whatsNew').lis(class: /_card_/) }
+    element(:whats_new_card_latest) { section(id: 'whatsNew').lis(class: /_card_/).first }
+    element(:latest_product_card_name) { section(id: 'whatsNew').lis(class: /_card_/).first.div(class: /_cardTitle_/).text.gsub(/^(New listing|Recent review): /, '') } # Takes just the product-name portion of the card title
+    element(:latest_product_card_link_leafname) { section(id: 'whatsNew').lis(class: /_card_/).first.a.href["#{TestEvolve.environment['root_url']}catalogue/".length..] } # Strips the first part of the URL off to leave just the product-name part (including the referral to the subsection, if present)
     element(:newsletter_section) { section(id: 'newsletter') }
     element(:newsletter_section_title) { section(id: 'newsletter').h2 }
     element(:email_address_label) { section(id: 'newsletter').form.label.div(text: 'Email') }

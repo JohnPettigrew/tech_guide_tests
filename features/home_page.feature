@@ -1,23 +1,23 @@
 Feature: Home page
+  Background:
+    Given I am on the home page
+    And I am a visitor
+
   @axe
   Scenario: Home page is accessible
-    Given I am on the home page
     Then the home page passes an accessibility audit
   
-@working
   Scenario: Home page in-page navigation
-    Given I am on the home page
     Then I see an in-page navigation area that lists the page sections
-    When I click on 'Explore the catalogue' 
+    When I click on 'Explore the catalogue' on the in-page navbar
     Then the 'Explore the catalogue' section scrolls into view
-    When I click on 'What's new?' 
+    When I click on 'What's new?' on the in-page navbar
     Then the 'What's new?' section scrolls into view
-    When I click on 'Sign up for more' in the in-page nav area
+    When I click on 'Sign up for more' on the in-page navbar
     Then the 'Sign up for more' section scrolls into view
 
-@working
+@next_working
   Scenario: Home page structure
-    Given I am on the home page
     When I scroll to the top
     Then I see a top-level heading saying "Welcome to the Parkinson's UK Tech Guide"
     And I see the home-page hero text block
@@ -34,19 +34,16 @@ Feature: Home page
 
 @working
   Scenario: Can see latest review directly from the home page
-    Given I am on the home page
     When I click on the first card in the What's new section
     Then I see the PDP for that product
     And I am scrolled to the position of the review
 
   Scenario: Can read the latest product page directly from the home page
-    Given I am on the home page
-    When I click on the first card in the New products section
+    When I click on the first card in the What's new section
     Then I see the PDP for that product
 
   Scenario: Can sign up to the email newsletter from the home page
-    Given I am on the home page
-    And I click on 'Sign up for more' in the in-page nav area
+    When I click on 'Sign up for more' on the in-page navbar
     Then I see a second-level heading saying 'Sign up for more'
     And under this an email field labelled 'Email'
     And under this a field labelled 'Password'
@@ -68,7 +65,6 @@ Feature: Home page
     # And the 'Get the print edition' checkbox is not checked
 
   Scenario: Can sign up to the print edition from the home page
-    Given I am on the home page
     When I enter my email address into the field labelled 'Email address'
     And I enter my password into the field labelled 'Password'
     And I select the checkbox labelled 'Get the print edition'

@@ -4,37 +4,27 @@ Given(/^I am on the home page$/) do
 end
 
 When(/^I click on the first card in the What's new section$/) do
-  home_page.recent_product_name = home_page.latest_review_card_name
-  home_page.recent_product_url = home_page.latest_review_card_link
-  home_page.recent_product_leafname = home_page.recent_product_url["#{TestEvolve.environment['root_url']}catalogue/".length..] # Strips the first part of the URL off to leave just the product-name part (including the referral to the subsection, if present)
-  home_page.latest_review_card.scroll.to :viewport
-  raise 'Latest-review cards are not visible' unless home_page.latest_review_card.visible?
-  home_page.latest_review_card.click
-end
-
-When(/^I click on the first card in the New products section$/) do
-  home_page.recent_product_name = home_page.latest_product_card.text
-  home_page.recent_product_url = home_page.latest_product_card.href
-  home_page.latest_product_card.scroll.to :viewport
-  raise 'Latest-product cards are not visible' unless home_page.latest_product_card.visible?
-  home_page.latest_product_card.click
+  home_page.recent_product_name = home_page.latest_product_card_name
+  home_page.recent_product_leafname = home_page.latest_product_card_link_leafname
+  home_page.whats_new_card_latest.scroll.to :viewport
+  raise 'What\'s-new cards are not visible' unless home_page.whats_new_card_latest.visible?
+  home_page.whats_new_card_latest.click
 end
 
 When(/^I scroll down past the recent updates area$/) do
   TestEvolve.browser.scroll.to home_page.newsletter_section
 end
 
-When(/^I click on 'Explore the catalogue'$/) do
-  pending
-  home_page.key_benefits_link.click
+When(/^I click on 'Explore the catalogue' on the in-page navbar$/) do
+  home_page.in_page_navbar_explore_link.click
 end
 
-When(/^I click on 'What's new\?'$/) do
-  home_page.whats_new_link.click
+When(/^I click on 'What's new\?' on the in-page navbar$/) do
+  home_page.in_page_navbar_whats_new_link.click
 end
 
-When(/^I click on 'Sign up for more' in the in-page nav area$/) do
-  home_page.newsletter_link.click
+When(/^I click on 'Sign up for more' on the in-page navbar$/) do
+  home_page.in_page_navbar_newsletter_link.click
 end
 
 When(/^I enter my email address into the field labelled 'Email address'$/) do
@@ -108,7 +98,7 @@ end
 
 Then(/^there are five cards in this products area$/) do
   pending
-  raise "What's new subheadings are not present" unless home_page.whats_new_section_subheadings.count == 2
+  raise "What's new cards are not present" unless home_page.whats_new_cards.count == 5
 end
 
 Then(/^I see the PDP for that product$/) do
@@ -127,13 +117,13 @@ end
 Then(/^I see an in-page navigation area that lists the page sections$/) do
   raise 'In-page navbar is not visible' unless home_page.in_page_navbar.visible?
   raise 'In-page navbar is missing its title' unless home_page.in_page_navbar_title.visible?
-  raise 'In-page navbar is missing the benefits link' unless home_page.key_benefits_link.visible?
-  raise 'In-page navbar is missing the whats-new link' unless home_page.whats_new_link.visible?
-  raise 'In-page navbar is missing the newsletter link' unless home_page.newsletter_link.visible?
+  raise 'In-page navbar is missing the explore link' unless home_page.in_page_navbar_explore_link.visible?
+  raise 'In-page navbar is missing the whats-new link' unless home_page.in_page_navbar_whats_new_link.visible?
+  raise 'In-page navbar is missing the newsletter link' unless home_page.in_page_navbar_newsletter_link.visible?
 end
 
 Then(/^the 'Explore the catalogue' section scrolls into view$/) do
-  raise 'Key benefits section is not visible' unless home_page.benefits_section_title.visible?
+  raise 'Explore section is not visible' unless home_page.explore_section_title.visible?
 end
 
 Then(/^the 'What's new\?' section scrolls into view$/) do
