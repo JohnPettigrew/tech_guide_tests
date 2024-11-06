@@ -4,36 +4,38 @@ Feature: Home page
     Given I am on the home page
     Then the home page passes an accessibility audit
   
+@working
   Scenario: Home page in-page navigation
     Given I am on the home page
     Then I see an in-page navigation area that lists the page sections
-    When I click on 'The Tech Guide helps you to...' 
-    Then the 'The Tech Guide helps you to...' section scrolls into view
+    When I click on 'Explore the catalogue' 
+    Then the 'Explore the catalogue' section scrolls into view
     When I click on 'What's new?' 
     Then the 'What's new?' section scrolls into view
     When I click on 'Sign up for more' in the in-page nav area
     Then the 'Sign up for more' section scrolls into view
+
 @working
   Scenario: Home page structure
     Given I am on the home page
     When I scroll to the top
     Then I see a top-level heading saying "Welcome to the Parkinson's UK Tech Guide"
     And I see the home-page hero text block
-    And I see the hero image
+    And I see the 4 hero images
     And I see the hero CTA button
-    And there is a second-level heading saying "The Tech Guide helps you to..."
-    And there are three third-level headings in this benefits area
-    And there are three blocks of text in this benefits area
-    And there are three images in this benefits area
-    And there are three links in this benefits area
+    And there is a second-level heading saying "Explore the catalogue"
+    And there are three cards in this Explore area
+    And the first Explore card links to Free stuff
+    And the second Explore card links to Walking
+    And the third Explore card links to Day-to-day
+    And there is a link in the Explore area to the full catalogue
     And there is a second-level heading saying "What’s new"
-    And there are two third-level headings in this products area
-    And there is at least one card containing a recently published review
-    And there is a list of five product names
+    And there are five cards in this products area
 
+@working
   Scenario: Can see latest review directly from the home page
     Given I am on the home page
-    When I click on the first card in the Recent reviews section
+    When I click on the first card in the What's new section
     Then I see the PDP for that product
     And I am scrolled to the position of the review
 
