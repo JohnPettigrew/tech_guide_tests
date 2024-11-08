@@ -1,6 +1,7 @@
 Feature: Home page
   Background:
     Given I am on the home page
+    And I have previously given cookie consent
     And I am a visitor
 
   @axe
@@ -16,7 +17,6 @@ Feature: Home page
     When I click on 'Sign up for more' on the in-page navbar
     Then the 'Sign up for more' section scrolls into view
 
-@next_working
   Scenario: Home page structure
     When I scroll to the top
     Then I see a top-level heading saying "Welcome to the Parkinson's UK Tech Guide"
@@ -29,14 +29,12 @@ Feature: Home page
     And the second Explore card links to Walking
     And the third Explore card links to Day-to-day
     And there is a link in the Explore area to the full catalogue
-    And there is a second-level heading saying "What’s new"
+    And there is a second-level heading saying "What’s new?"
     And there are five cards in this products area
 
-@working
-  Scenario: Can see latest review directly from the home page
+  Scenario: Can see latest product directly from the home page
     When I click on the first card in the What's new section
     Then I see the PDP for that product
-    And I am scrolled to the position of the review
 
   Scenario: Can read the latest product page directly from the home page
     When I click on the first card in the What's new section

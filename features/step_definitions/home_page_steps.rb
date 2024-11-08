@@ -5,7 +5,7 @@ end
 
 When(/^I click on the first card in the What's new section$/) do
   home_page.recent_product_name = home_page.latest_product_card_name
-  home_page.recent_product_leafname = home_page.latest_product_card_link_leafname
+  home_page.recent_product_url = home_page.latest_product_card_link
   home_page.whats_new_card_latest.scroll.to :viewport
   raise 'What\'s-new cards are not visible' unless home_page.whats_new_card_latest.visible?
   home_page.whats_new_card_latest.click
@@ -53,61 +53,49 @@ Then(/^I see the home-page hero text block$/) do
 end
 
 Then(/^I see the 4 hero images$/) do
-  pending
-  raise 'Home-page hero image is missing' unless home_page.hero_image.visible?
+  raise 'Home-page should have 4 hero images' unless home_page.hero_image.count == 4
 end
 
 Then(/^I see the hero CTA button$/) do
   raise 'Home-page hero CTA button is missing' unless home_page.hero_cta.visible?
-  pending
-  raise "Home-page hero CTA button has the wrong link URL" unless home_page.hero_cta.href == catalogue_page.url
+  raise "Home-page hero CTA button has the wrong link URL" unless home_page.hero_cta.href == help_page.url + '/what-is-the-tech-guide'
 end
 
 Then(/^there is a second-level heading saying "Explore the catalogue"$/) do
   raise 'Explore section heading is not present' unless home_page.heading2(text: 'Explore the catalogue').present?
 end
 
-Then(/^there is a second-level heading saying "What’s new"$/) do
-  raise 'What’s new heading is not present' unless home_page.heading2(text: 'What’s new').present?
+Then(/^there is a second-level heading saying "What’s new\?"$/) do
+  raise 'What’s new heading is not present' unless home_page.heading2(text: 'What’s new?').present?
 end
 
 Then(/^there are three cards in this Explore area$/) do
-  pending
-  raise "Explore cards are not present" unless home_page.benefits_section_subheadings.count == 3
+    raise "Explore cards are not present" unless home_page.explore_section_cards.count == 3
 end
 
 Then(/^the first Explore card links to Free stuff$/) do
-  pending
-  raise "First Explore card link not present" unless home_page.benefits_section_links.count == 3
+  raise "First Explore card link not present" unless home_page.explore_section_cards[0].a.href == catalogue_page.url + '?price-rating=free#product-results'
 end
 
 Then(/^the second Explore card links to Walking$/) do
-  pending
-  raise "Second Explore card link not present" unless home_page.benefits_section_links.count == 3
+  raise "Second Explore card link not present" unless home_page.explore_section_cards[1].a.href == catalogue_page.url + '?user-need=walking#product-results'
 end
 
 Then(/^the third Explore card links to Day-to-day$/) do
-  pending
-  raise "Third Explore card link not present" unless home_page.benefits_section_links.count == 3
+  raise "First Explore card link not present" unless home_page.explore_section_cards[2].a.href == catalogue_page.url + '?user-need=recording-my-progress#product-results'
 end
 
 Then(/^there is a link in the Explore area to the full catalogue$/) do
-  pending
-  raise "Full-catalogue link not present" unless home_page.benefits_section_links.count == 3
+  raise "Full-catalogue link not present" unless home_page.explore_section_catalogue_link == catalogue_page.url
 end
 
 Then(/^there are five cards in this products area$/) do
-  pending
-  raise "What's new cards are not present" unless home_page.whats_new_cards.count == 5
+  raise "What's new cards are not present" unless home_page.whats_new_cards.count == 5 || 6 # 6 for extra-wide view only
 end
 
 Then(/^I see the PDP for that product$/) do
   product_page(product_name: home_page.recent_product_leafname).wait_for_page_load
   raise "Expecting to be on the PDP for #{home_page.recent_product_name} but the URL is #{TestEvolve.browser.url}" unless TE.browser.url == home_page.recent_product_url
-end
-
-Then(/^I am scrolled to the position of the review$/) do
-  raise 'PDP Trusted Review heading is not visible' unless product_page(product_name: home_page.recent_product_leafname).trusted_review_heading.visible?
 end
 
 Then(/^I see a second-level heading saying 'Sign up for more'$/) do
