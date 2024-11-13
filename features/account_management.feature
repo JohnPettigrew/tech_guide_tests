@@ -1,4 +1,3 @@
-@working
 Feature: Account management
   Background:
     Given I am on the home page

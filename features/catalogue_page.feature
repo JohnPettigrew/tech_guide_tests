@@ -1,6 +1,10 @@
+@working
 Feature: Catalogue page
-  Scenario: Catalogue page structure is correct
+  Background:
     Given I am on the catalogue page
+    And I reject cookies
+
+  Scenario: Catalogue page structure is correct
     Then I see a first-level heading saying "Explore the catalogue"
     And I see the catalogue-page hero text block
     And I see the key-filters block
@@ -12,7 +16,6 @@ Feature: Catalogue page
     And a product card links to Parkinson's ON
 
   Scenario: Can search to find a particular product
-    Given I am on the catalogue page
     When I type 'cue' into the product search field
     And I click the product search button
     Then I see one pill
@@ -21,7 +24,6 @@ Feature: Catalogue page
     And I see cards that do not include Parkinson's ON
 
   Scenario: Can filter to find a particular product
-    Given I am on the catalogue page
     When I click the product filters button
     Then the product filters modal opens
     When I click 'Free'

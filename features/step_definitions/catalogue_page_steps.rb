@@ -1,6 +1,5 @@
 Given(/^I am on the catalogue page$/) do
   catalogue_page.visit
-  catalogue_page.wait_for_page_load
 end
 
 When(/^I type 'cue' into the product search field$/) do

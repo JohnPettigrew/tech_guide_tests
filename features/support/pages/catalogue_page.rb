@@ -28,6 +28,7 @@ module Pages
     
     def visit
       goto @url
+      wait_for_page_load
     end
 
     def wait_for_page_load
