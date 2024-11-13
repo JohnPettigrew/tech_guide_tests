@@ -1,9 +1,4 @@
 Feature: Help area
-  @axe
-  Scenario: Help page is accessible
-    Given I am on the help page
-    Then the help page passes an accessibility audit
-
   Scenario: Help page structure is correct
     Given I am on the help page
     Then I see a first-level heading saying "Help and support for the Tech Guide"

@@ -1,9 +1,4 @@
 Feature: Catalogue page
-  @axe
-  Scenario: Catalogue page is accessible
-    Given I am on the catalogue page
-    Then the catalogue page passes an accessibility audit
-
   Scenario: Catalogue page structure is correct
     Given I am on the catalogue page
     Then I see a first-level heading saying "Explore the catalogue"

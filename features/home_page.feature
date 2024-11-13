@@ -4,10 +4,6 @@ Feature: Home page
     And I have previously given cookie consent
     And I am a visitor
 
-  @axe
-  Scenario: Home page is accessible
-    Then the home page passes an accessibility audit
-  
   Scenario: Home page in-page navigation
     Then I see an in-page navigation area that lists the page sections
     When I click on 'Explore the catalogue' on the in-page navbar

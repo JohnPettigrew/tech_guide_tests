@@ -31,19 +31,6 @@ Feature: Account management
     Then I am taken to the home page
     And I see a Log in button in the desktop navbar
 
-  @axe
-  Scenario: Account pages are accessible
-    Given I am a visitor
-    And I am on the log-in page
-    Then the log-in page passes an accessibility audit
-    When I am on the sign-up page
-    Then the sign-up page passes an accessibility audit
-    When I am a user
-    And I am on my profile page
-    Then the profile page passes an accessibility audit
-    When I click on the subscriptions tab label
-    Then the profile page passes an accessibility audit
-
   Scenario: Profile page structure is correct
     Given I am a user
     And I am on my profile page

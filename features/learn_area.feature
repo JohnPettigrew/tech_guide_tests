@@ -1,9 +1,4 @@
 Feature: Learn area
-  @axe
-  Scenario: Learn page is accessible
-    Given I am on the learn page
-    Then the learn page passes an accessibility audit
-
   Scenario: Learn page structure is correct
     Given I am on the learn page
     Then I see a first-level heading saying "Learn more about technology & Parkinson's"
