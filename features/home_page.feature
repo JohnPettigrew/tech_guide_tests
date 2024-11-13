@@ -1,7 +1,7 @@
 Feature: Home page
   Background:
     Given I am on the home page
-    And I have previously given cookie consent
+    And I reject cookies
     And I am a visitor
 
   Scenario: Home page in-page navigation

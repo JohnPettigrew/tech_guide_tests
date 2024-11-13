@@ -24,7 +24,7 @@ Feature: Accessibility
 
   Scenario: Home page is accessible
     Given I am on the home page
-    And I have previously given cookie consent
+    And I reject cookies
     And I am a visitor
     Then the home page passes an accessibility audit
   

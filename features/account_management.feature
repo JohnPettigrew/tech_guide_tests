@@ -1,4 +1,8 @@
 Feature: Account management
+  Background:
+    Given I am on the home page
+    And I reject cookies
+
   Scenario: Can create a new account
     Given I am on the home page
     And I am a visitor
