@@ -32,10 +32,6 @@ Feature: Home page
     When I click on the first card in the What's new section
     Then I see the PDP for that product
 
-  Scenario: Can read the latest product page directly from the home page
-    When I click on the first card in the What's new section
-    Then I see the PDP for that product
-
   Scenario: Can sign up to the email newsletter from the home page
     When I click on 'Sign up for more' on the in-page navbar
     Then I see a second-level heading saying 'Sign up for more'
