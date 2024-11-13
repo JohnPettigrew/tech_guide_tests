@@ -6,7 +6,7 @@ module Pages
   class ProductPage < TestEvolve::Core::PageObject
     attr_reader :url
 
-    element(:overview_heading) { h2(text: 'Overview') }
+    element(:overview_heading) { h2(text: 'Claimed features') }
     element(:trusted_review_heading) { h2(text: 'Trusted review') }
 
     def initialize(product_name: nil)
