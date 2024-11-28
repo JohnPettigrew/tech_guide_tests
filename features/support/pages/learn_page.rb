@@ -6,7 +6,7 @@ module Pages
   class LearnPage < TestEvolve::Core::PageObject
     attr_reader :url
 
-    element(:hero_title) { h1(text: 'Learn more about technology & Parkinson\'s') }
+    element(:hero_title) { h1(text: 'Learn more about technology & Parkinson’s') }
     element(:hero_text) { sections.first.ps }
     element(:search_field) { input(data_cy: 'search-input') }
     element(:search_button) { button(name: 'submit-search') }

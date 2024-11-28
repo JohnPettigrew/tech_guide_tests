@@ -2,7 +2,7 @@ local:
   root_url: https://techguide.parkinsons.org.uk/
 
 vercel:
-  root_url: https://puk-tech-guide-git-feature-t-7635-cygnet1.vercel.app/
+  root_url: https://puk-tech-guide-git-feature-t-7748-cygnet1.vercel.app/
   
 qa:
   root_url: https://puk-tech-guide.vercel.app/
