@@ -6,8 +6,8 @@ module Pages
   class ProductPage < TestEvolve::Core::PageObject
     attr_reader :url
 
-    element(:overview_heading) { h2(text: 'Claimed features') }
-    element(:trusted_review_heading) { h2(text: 'Trusted review') }
+    element(:page_heading) { h1(text: 'Parkinson’s ON') }
+    element(:overview_heading) { h2(text: 'Features') }
 
     def initialize(product_name: nil)
       @url = "#{TestEvolve.environment['root_url']}catalogue/#{product_name.to_s}"

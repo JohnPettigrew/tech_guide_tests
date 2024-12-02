@@ -15,14 +15,14 @@ module Pages
     element(:content_wrapper) { section(class: /_wrapper_/) }
     element(:in_page_navbar) { nav(aria_label: 'On this page') }
     element(:in_page_navbar_title) { nav(aria_label: 'On this page').h2 }
-    element(:in_page_navbar_explore_link) { a(href: /\#expl?oreCatalogue/) } # Regex on the div class because of a typo currently in the template
+    element(:in_page_navbar_explore_link) { a(href: /\#exploreCatalogue/) } # Regex on the div class because of a typo currently in the template
     element(:in_page_navbar_whats_new_link) { a(href: '#whatsNew') }
     element(:in_page_navbar_newsletter_link) { a(href: '#newsletter') }
-    element(:explore_section) { div(id: /expl?oreCatalogue/) } # Regex on the div class because of a typo currently in the template
-    element(:explore_section_title) { div(id: /expl?oreCatalogue/).h2 }
-    element(:explore_section_cards) { div(id: /expl?oreCatalogue/).ul(class: /_cardContainer_/).lis }
-    element(:explore_section_links) { div(id: /expl?oreCatalogue/).ul(class: /_cardContainer_/).as }
-    element(:explore_section_catalogue_link) { div(id: /expl?oreCatalogue/).a(class: /_styledLink_/).href }
+    element(:explore_section) { div(id: /exploreCatalogue/) } # Regex on the div class because of a typo currently in the template
+    element(:explore_section_title) { div(id: /exploreCatalogue/).h2 }
+    element(:explore_section_cards) { div(id: /exploreCatalogue/).ul(class: /_cardContainer_/).lis }
+    element(:explore_section_links) { div(id: /exploreCatalogue/).ul(class: /_cardContainer_/).as }
+    element(:explore_section_catalogue_link) { div(id: /exploreCatalogue/).a(class: /_styledLink_/).href }
     element(:whats_new_section) { section(id: 'whatsNew') }
     element(:whats_new_section_title) { section(id: 'whatsNew').h2 }
     element(:whats_new_cards) { section(id: 'whatsNew').lis(class: /_card_/) }

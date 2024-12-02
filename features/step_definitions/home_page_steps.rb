@@ -81,8 +81,8 @@ Then(/^the second Explore card links to Walking$/) do
   raise "Second Explore card link not present" unless home_page.explore_section_cards[1].a.href == catalogue_page.url + '?user-need=walking#product-results'
 end
 
-Then(/^the third Explore card links to Day-to-day$/) do
-  raise "First Explore card link not present" unless home_page.explore_section_cards[2].a.href == catalogue_page.url + '?user-need=recording-my-progress#product-results'
+Then(/^the third Explore card links to Reviewed$/) do
+  raise "First Explore card link not present" unless home_page.explore_section_cards[2].a.href == catalogue_page.url + '?has-panel-review=true'
 end
 
 Then(/^there is a link in the Explore area to the full catalogue$/) do

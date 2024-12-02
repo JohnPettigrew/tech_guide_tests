@@ -1,4 +1,3 @@
-@working
 Feature: Learn area
   Background:
     Given I am on the learn page

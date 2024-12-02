@@ -23,12 +23,12 @@ Feature: Home page
     And there are three cards in this Explore area
     And the first Explore card links to Free stuff
     And the second Explore card links to Walking
-    And the third Explore card links to Day-to-day
+    And the third Explore card links to Reviewed
     And there is a link in the Explore area to the full catalogue
     And there is a second-level heading saying "What’s new?"
     And there are five cards in this products area
 
-  Scenario: Can see latest product directly from the home page
+@working  Scenario: Can see latest product directly from the home page
     When I click on the first card in the What's new section
     Then I see the PDP for that product
 
