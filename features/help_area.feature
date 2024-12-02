@@ -1,4 +1,3 @@
-@working
 Feature: Help area
   Background:
     Given I am on the help page
