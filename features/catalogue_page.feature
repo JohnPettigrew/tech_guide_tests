@@ -2,6 +2,7 @@ Feature: Catalogue page
   Background:
     Given I am on the catalogue page
     And I reject cookies
+    And I am a visitor
 
   Scenario: Catalogue page structure is correct
     Then I see a first-level heading saying "Explore the catalogue"
