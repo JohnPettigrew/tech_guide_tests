@@ -28,7 +28,7 @@ Feature: Home page
     And there is a second-level heading saying "What’s new?"
     And there are five cards in this products area
 
-@working  Scenario: Can see latest product directly from the home page
+Scenario: Can see latest product directly from the home page
     When I click on the first card in the What's new section
     Then I see the PDP for that product
 
