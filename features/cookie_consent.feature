@@ -1,4 +1,3 @@
-@working
 Feature: Cookie consent
   
   Scenario: I can reject cookies
