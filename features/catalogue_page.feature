@@ -1,8 +1,10 @@
 Feature: Catalogue page
   Background:
+  # Need two "I am on the catalogue page" because the "I am a visitor" step could take you back to the home page
     Given I am on the catalogue page
     And I reject cookies
     And I am a visitor
+    And I am on the catalogue page
 
   Scenario: Catalogue page structure is correct
     Then I see a first-level heading saying "Explore the catalogue"
