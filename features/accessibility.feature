@@ -16,6 +16,11 @@ Feature: Accessibility
     Given I am on the catalogue page
     And I am a visitor
     Then the catalogue page passes an accessibility audit
+  
+  Scenario: Product page is accessible
+    Given I am on the product page for Parkinson's ON
+    And I am a visitor
+    Then the product page passes an accessibility audit
 
   Scenario: Help page is accessible
     Given I am on the help page

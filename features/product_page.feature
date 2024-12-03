@@ -7,6 +7,8 @@ Feature: Product pages
   Scenario: PDP structure is correct
     Given I am a visitor
     Then the page heading is 'Parkinson’s ON'
+    And there is a Back button
+    And there are breadcrumbs
     And the price band tag is 'Free'
     And the company name is 'Parkinson’s ON Ltd'
     And there is a last-updated date
