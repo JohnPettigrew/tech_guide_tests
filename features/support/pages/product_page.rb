@@ -6,7 +6,11 @@ module Pages
   class ProductPage < TestEvolve::Core::PageObject
     attr_reader :url
 
-    element(:page_heading) { h1(text: 'Parkinson’s ON') }
+    element(:page_heading) { h1(class: /_productName_/, text: 'Parkinson’s ON') }
+    element(:price_band_tag) { dl(class: /_productTags_/) dd(class: /_productPriceRating_/) }
+    element(:company_name) { p(class: /_companyName_/) a.text }
+    element(:last_updated_date) { p(class: /_updatedDate_/) }
+    element(:product_description) { p(class: /_productDescription_/) }
     element(:overview_heading) { h2(text: 'Features') }
 
     def initialize(product_name: nil)

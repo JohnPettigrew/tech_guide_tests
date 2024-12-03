@@ -5,5 +5,5 @@ Given(/^I am on the product page for Parkinson's ON$/) do
 end
 
 Then(/^the page heading is 'Parkinson’s ON'$/) do
-  raise 'Page heading not visible' unless @parkinsons_on_page.page_heading.visible?
+  raise "Page heading is #{TE.browser.h1.text}" unless @parkinsons_on_page.page_heading.visible?
 end
