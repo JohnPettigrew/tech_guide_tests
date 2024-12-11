@@ -18,23 +18,24 @@ Feature: Product pages
     And there are at least two thumbnail images in the image gallery
     And there is a Download/Buy button
     And there is an in-page navbar
-    And there is a Features section
+    And there is a Features section on this product page
     And the Features section has at least 5 bullet points
     And there is a Categories subsection
     And there is a category row showing the Product Type as 'App'
     And there is a category row showing the Helps With as including 'Taking my pills'
     And there is a Panel review section on this product page
-    And the panel review on this product page has a Quick Overview subheading
+    And the panel review on this product page has a 'Quick overview' subheading
     And the panel review on this product page has a Highs and Lows box
     And the panel review on this product page has a Background section
     And the panel review on this product page has a 'Read the full review' link
     And the panel review on this product page has a 'Read time' value
-    And there is a Community Views section
-    And the Community Views section has a 'Share your view' button
-    And there is a Learn More section
-    And the Learn More section includes a link to the 'What is an app?' article
-    And the Learn More section includes at least one link to an article in the 'Information and support' section of the main PUK website
-    And there is a Questions section
+    And there is a Community views section on this product page
+    And the Community views section has a log-in link
+    And the Community views section has a sign-up link
+    And there is a 'Learn more' section on this product page
+    And the 'Learn more' section includes a link to the 'What is an app?' article
+    And the 'Learn more' section includes at least one link to an article in the 'Information and support' section of the main PUK website
+    And there is a 'Questions' section on this product page
     And the first question has the subheading 'Impartiality and transparency'
     And the first question includes a link to the transparency-policy Help page
     And there is a Details section
