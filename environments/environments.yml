@@ -1,6 +1,11 @@
 local:
-  site_path: /demo_site/
+  root_url: https://techguide.parkinsons.org.uk/
 
-qa1:
-  example_site: www.testevolve.co.uk
-  wikipedia_site: https://en.wikipedia.org/wiki/Main_Page
+vercel:
+  root_url: https://puk-tech-guide-git-feature-t-7748-cygnet1.vercel.app/
+  
+qa:
+  root_url: https://puk-tech-guide.vercel.app/
+
+production:
+  root_url: https://techguide.parkinsons.org.uk/

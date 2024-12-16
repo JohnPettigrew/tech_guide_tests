@@ -1,0 +1,20 @@
+failure_screenshots: true
+resize_for_screenshots: false
+local:
+  html_report: true
+  realtime_failure: false
+  junit: true
+  json: true
+  rerun: true
+dashboard:
+  enabled: false
+  label: example-label
+  project_id: 1
+  auth_token: example-auth-token
+  scheduled_updates: false
+  scheduled_interval: 10
+testrail:
+  enabled: false
+  domain: example-domain
+  project_id: 1
+  test_run_id: 0
